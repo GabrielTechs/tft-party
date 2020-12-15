@@ -16,7 +16,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"src/**/*.{js,jsx}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
+    "buildlight": "parcel build public/index.html --no-source-maps --no-minify --public-url . --no-cache --out-dir out",
+    "buildp": "parcel build public/index.html --no-source-maps --public-url . --no-cache --out-dir out",
+    "startp": "parcel public/index.html"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +43,14 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "parcel-bundler": "^1.12.4",
     "prettier": "2.2.1"
   },
   "repository": {
