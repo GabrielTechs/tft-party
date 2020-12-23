@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ToolbarDiv = styled.div`
+const NavDiv = styled.div`
   position: sticky;
   width: 100%;
   height: 72px;
@@ -12,8 +12,8 @@ const ToolbarDiv = styled.div`
   z-index: 200;
 `;
 
-const Toolbar = () => {
-  return <ToolbarDiv></ToolbarDiv>;
+const NavBar = () => {
+  return <NavDiv></NavDiv>;
 };
 
-export default Toolbar;
+export default NavBar;
