@@ -6,6 +6,20 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faListUl,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faFacebookSquare, faHome, faInstagram, faWhatsapp);
+library.add(
+  fab,
+  faFacebookSquare,
+  faHome,
+  faInstagram,
+  faListUl,
+  faMoon,
+  faSun,
+  faWhatsapp
+);
