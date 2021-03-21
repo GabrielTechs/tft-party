@@ -8,27 +8,14 @@ const useTheme = () => {
     const savedTheme = storage.getItem("theme");
     return savedTheme ? JSON.parse(savedTheme) : defaultTheme;
   };
-  //gat last theme used and set default icon accordingly
-  let defaultIcon = ["fa", "sun"];
-  const getInitialIcon = () => {
-    const savedTheme = storage.getItem("theme");
-    if (JSON.parse(savedTheme) === "dark") {
-      return defaultIcon;
-    } else {
-      return (defaultIcon = ["fa", "moon"]);
-    }
-  };
 
   const [theme, setTheme] = useState(getInitialTheme);
-  const [icon, setIcon] = useState(getInitialIcon);
 
   const themeToggler = () => {
     if (theme === "light") {
       setTheme("dark");
-      setIcon(["fa", "sun"]);
     } else {
       setTheme("light");
-      setIcon(["fa", "moon"]);
     }
   };
 
@@ -36,7 +23,7 @@ const useTheme = () => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
 
-  return { theme, themeToggler, icon };
+  return { theme, themeToggler };
 };
 
 export default useTheme;
