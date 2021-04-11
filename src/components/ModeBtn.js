@@ -29,6 +29,9 @@ const SModeBtn = styled.button`
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.26),
       0 16px 19px 0 rgba(0, 0, 0, 0.19);
   }
+  :active {
+    background: ${({ theme }) => theme.secondary};
+  }
 `;
 
 ModeBtn.propTypes = {
