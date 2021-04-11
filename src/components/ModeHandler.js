@@ -1,13 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import ModeBtn from "./ModeBtn";
 
 import { mediaQueries } from "../assets/mediaQueries";
 
 const ModeHandler = () => {
   return (
     <ModeHandlerDiv>
-      <RandomModeDiv></RandomModeDiv>
-      <ModesDiv></ModesDiv>
+      <RandomModeDiv>
+        <ModeBtn btnValue="Random mode" />
+      </RandomModeDiv>
+      <ModesDiv>
+        <ModeBtn btnValue="Mode one" />
+        <ModeBtn btnValue="Mode two" />
+        <ModeBtn btnValue="Mode three" />
+        <ModeBtn btnValue="Mode four" />
+        <ModeBtn btnValue="Mode five" />
+        <ModeBtn btnValue="Mode six" />
+        <ModeBtn btnValue="Mode seven" />
+      </ModesDiv>
     </ModeHandlerDiv>
   );
 };
