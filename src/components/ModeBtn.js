@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import { mediaQueries } from "../assets/mediaQueries";
+
 const ModeBtn = (props) => {
   return <SModeBtn>{props.btnValue}</SModeBtn>;
 };
@@ -32,6 +34,12 @@ const SModeBtn = styled.button`
   :active {
     background: ${({ theme }) => theme.secondary};
   }
+  ${mediaQueries("md")`
+    width: 39%;
+  `}
+  ${mediaQueries("sm")`
+    width: 96%;
+  `}
 `;
 
 ModeBtn.propTypes = {
