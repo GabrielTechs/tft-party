@@ -13,8 +13,7 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:testing-library/dom",
-    "prettier",
-    "prettier/react"
+    "prettier"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
