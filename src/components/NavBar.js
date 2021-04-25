@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,12 +11,12 @@ const NavBar = (props) => {
       <div className="logo">TFT Party</div>
       <ul>
         <li>
-          <a href="home" alt="home" to="/">
+          <a href="/" alt="home" to="/">
             <FontAwesomeIcon icon={["fa", "home"]} size="1x" />
           </a>
         </li>
         <li>
-          <a href="service" alt="rules" to="/servicios">
+          <a href="/" alt="rules" to="/servicios">
             <FontAwesomeIcon icon={["fa", "list-ul"]} size="1x" />
           </a>
         </li>
@@ -73,5 +74,10 @@ const NavContainer = styled.div`
     }
   }
 `;
+
+NavBar.propTypes = {
+  themeToggler: PropTypes.func,
+  icon: PropTypes.array,
+};
 
 export default NavBar;
