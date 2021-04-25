@@ -1,13 +1,13 @@
 import React from "react";
-import "./App.css";
-import "./assets/FontAwesomeIcon";
 
-import { ThemeProvider } from "styled-components";
-import useTheme from "./assets/useTheme";
+import "./assets/FontAwesomeIcon";
 import GlobalStyles from "./assets/GlobalStyles";
+import { themes } from "./assets/themes";
+import { ThemeProvider } from "styled-components";
+import useTheme from "./hooks/useTheme";
 
 import NavBar from "./components/NavBar";
-import { themes } from "./assets/themes";
+import ModeHandler from "./components/ModeHandler";
 
 function App() {
   const { theme, themeToggler, icon } = useTheme();
@@ -17,7 +17,7 @@ function App() {
       <GlobalStyles />
       <div className="App">
         <NavBar theme={theme} themeToggler={themeToggler} icon={icon} />
-        <h1>Hello World</h1>
+        <ModeHandler />
       </div>
     </ThemeProvider>
   );

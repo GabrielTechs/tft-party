@@ -8,7 +8,7 @@ const useTheme = () => {
     const savedTheme = storage.getItem("theme");
     return savedTheme ? JSON.parse(savedTheme) : defaultTheme;
   };
-  //gat last theme used and set default icon accordingly
+  //get last theme used and set default icon accordingly
   let defaultIcon = ["fa", "sun"];
   const getInitialIcon = () => {
     const savedTheme = storage.getItem("theme");
@@ -19,9 +19,11 @@ const useTheme = () => {
     }
   };
 
+  //initializing theme and toggler btn icon
   const [theme, setTheme] = useState(getInitialTheme);
   const [icon, setIcon] = useState(getInitialIcon);
 
+  //toggler btn handler to change the theme and icon
   const themeToggler = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -32,6 +34,7 @@ const useTheme = () => {
     }
   };
 
+  //listening the theme state to set the local storage on change
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
