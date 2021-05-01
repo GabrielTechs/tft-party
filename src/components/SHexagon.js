@@ -8,17 +8,29 @@ import Hexagon from "react-hexagon";
 
 const SHexagon = (props) => {
   const themeContext = useContext(ThemeContext);
+  const img = props.img;
 
   return (
     <HexagonDiv>
-      <Hexagon
-        style={{
-          stroke: `${themeContext.primary}`,
-          strokeWidth: 30,
-        }}
-        backgroundImage={props.img}
-        backgroundScale={1.001}
-      />
+      {img ? (
+        <Hexagon
+          style={{
+            stroke: `${themeContext.primary}`,
+            strokeWidth: 30,
+          }}
+          backgroundImage={props.img}
+          backgroundScale={1.001}
+        />
+      ) : (
+        <Hexagon
+          style={{
+            stroke: `${themeContext.primary}`,
+            strokeWidth: 30,
+            fill: `${props.background}`,
+          }}
+          backgroundScale={1.001}
+        />
+      )}
     </HexagonDiv>
   );
 };
