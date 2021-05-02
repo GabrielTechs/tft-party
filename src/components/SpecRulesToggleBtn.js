@@ -2,9 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import SHexagon from "./SHexagon";
+
 const SpecRulesToggleBtn = (props) => {
   return (
     <SpecRulesTBtn onClick={props.toggle}>
+      <SHexagon background="none" />
       <h3>{props.specRule}</h3>
     </SpecRulesTBtn>
   );
