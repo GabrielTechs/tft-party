@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+import SpecialRulesToggleBtn from "./SpecRulesToggleBtn";
+
 const SpecialRules = () => {
   return (
     <SpecRulesDiv>
       <SpecRulesH2>Special Rules:</SpecRulesH2>
+      <SpecialRulesToggleBtn specRule="rule 1" />
+      <SpecialRulesToggleBtn specRule="rule 2" />
+      <SpecialRulesToggleBtn specRule="rule 3" />
+      <SpecialRulesToggleBtn specRule="rule 4" />
     </SpecRulesDiv>
   );
 };
