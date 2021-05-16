@@ -35,14 +35,18 @@ const SHexagon = (props) => {
   );
 };
 
-const HexagonDiv = styled.div`
-  width: inherit;
-  padding: 0.69px;
-`;
-
 SHexagon.propTypes = {
   img: PropTypes.string,
   background: PropTypes.string,
 };
+
+const HexagonDiv = styled.div`
+  height: 100%;
+  padding: 0.69px;
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+`;
 
 export default SHexagon;

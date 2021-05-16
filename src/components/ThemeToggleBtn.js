@@ -12,6 +12,11 @@ const ThemeToggleBtn = (props) => {
   );
 };
 
+ThemeToggleBtn.propTypes = {
+  themeToggler: PropTypes.func,
+  icon: PropTypes.array,
+};
+
 const ThemeBtn = styled.button`
   background: none;
   border: none;
@@ -21,10 +26,5 @@ const ThemeBtn = styled.button`
   margin-left: 15px;
   transition: 0.8s;
 `;
-
-ThemeToggleBtn.propTypes = {
-  themeToggler: PropTypes.func,
-  icon: PropTypes.array,
-};
 
 export default ThemeToggleBtn;

@@ -13,6 +13,11 @@ const SpecRulesToggleBtn = (props) => {
   );
 };
 
+SpecRulesToggleBtn.propTypes = {
+  toggle: PropTypes.func,
+  specRule: PropTypes.string,
+};
+
 const SpecRulesTBtn = styled.button`
   background: none;
   border: none;
@@ -20,7 +25,6 @@ const SpecRulesTBtn = styled.button`
   display: flex;
   flex-direction: row;
   height: 56px;
-  width: 19%;
   padding: 10px;
   h3 {
     color: ${({ theme }) => theme.primaryText};
@@ -29,10 +33,5 @@ const SpecRulesTBtn = styled.button`
     font-weight: 500;
   }
 `;
-
-SpecRulesToggleBtn.propTypes = {
-  toggle: PropTypes.func,
-  specRule: PropTypes.string,
-};
 
 export default SpecRulesToggleBtn;
