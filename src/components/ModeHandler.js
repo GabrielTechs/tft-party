@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ModeBtn from "./ModeBtn";
 
 import { mediaQueries } from "../assets/mediaQueries";
+import { Modes } from "../assets/RulesPlaceHolders";
 
 const ModeHandler = () => {
   return (
@@ -11,22 +12,18 @@ const ModeHandler = () => {
         <ModeBtn btnValue="Random mode" />
       </RandomModeDiv>
       <ModesDiv>
-        <ModeBtn btnValue="Mode one" />
-        <ModeBtn btnValue="Mode two" />
-        <ModeBtn btnValue="Mode three" />
-        <ModeBtn btnValue="Mode four" />
-        <ModeBtn btnValue="Mode five" />
-        <ModeBtn btnValue="Mode six" />
-        <ModeBtn btnValue="Mode seven" />
+        {Object.keys(Modes).map((mode) => (
+          <ModeBtn key={mode} btnValue={Modes[mode].modeName} />
+        ))}
       </ModesDiv>
     </ModeHandlerDiv>
   );
 };
 
 const ModeHandlerDiv = styled.div`
-  padding: 69px;
+  margin: 69px;
   ${mediaQueries("md")`
-  padding: 26px;
+  margin: 26px;
   `}
 `;
 

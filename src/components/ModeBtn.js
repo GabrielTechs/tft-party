@@ -8,6 +8,10 @@ const ModeBtn = (props) => {
   return <SModeBtn>{props.btnValue}</SModeBtn>;
 };
 
+ModeBtn.propTypes = {
+  btnValue: PropTypes.string,
+};
+
 const SModeBtn = styled.button`
   border: none;
   border-radius: 69px;
@@ -41,9 +45,5 @@ const SModeBtn = styled.button`
     width: 96%;
   `}
 `;
-
-ModeBtn.propTypes = {
-  btnValue: PropTypes.string,
-};
 
 export default ModeBtn;
