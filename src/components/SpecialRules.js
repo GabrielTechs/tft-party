@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 import SpecialRulesToggleBtn from "./SpecRulesToggleBtn";
+import { SRules } from "../assets/RulesPlaceHolders";
 
 const SpecialRules = () => {
   return (
     <SpecRulesDiv>
       <SpecRulesH2>Special Rules:</SpecRulesH2>
-      <SpecialRulesToggleBtn specRule="rule 1" />
-      <SpecialRulesToggleBtn specRule="rule 2" />
-      <SpecialRulesToggleBtn specRule="rule 3" />
-      <SpecialRulesToggleBtn specRule="rule 4" />
+      {Object.keys(SRules).map((sRule) => (
+        <SpecialRulesToggleBtn
+          key={sRule}
+          specRule={SRules[sRule].specialRuleName}
+        />
+      ))}
     </SpecRulesDiv>
   );
 };
@@ -19,7 +22,7 @@ const SpecRulesDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100%;
+  margin: 0 69px;
 `;
 
 const SpecRulesH2 = styled.h2`
