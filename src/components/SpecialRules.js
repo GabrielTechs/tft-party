@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import SpecialRulesToggleBtn from "./SpecRulesToggleBtn";
+import { mediaQueries } from "../assets/mediaQueries";
 import { SRules } from "../assets/RulesPlaceHolders";
 
 const SpecialRules = () => {
@@ -23,6 +24,10 @@ const SpecRulesDiv = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0 69px;
+
+  ${mediaQueries("md")`
+  margin: 26px;
+  `}
 `;
 
 const SpecRulesH2 = styled.h2`
