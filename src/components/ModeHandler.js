@@ -8,12 +8,13 @@ import { Modes } from "../assets/RulesPlaceHolders";
 const ModeHandler = () => {
   return (
     <ModeHandlerDiv>
+      <ModeHandlerH2>Game modes:</ModeHandlerH2>
       <RandomModeDiv>
         <ModeBtn btnValue="Random mode" />
       </RandomModeDiv>
       <ModesDiv>
-        {Object.keys(Modes).map((mode) => (
-          <ModeBtn key={mode} btnValue={Modes[mode].modeName} />
+        {Modes.map((mode) => (
+          <ModeBtn key={mode.modeName} btnValue={mode.modeName} />
         ))}
       </ModesDiv>
     </ModeHandlerDiv>
@@ -25,6 +26,15 @@ const ModeHandlerDiv = styled.div`
   ${mediaQueries("md")`
   margin: 26px;
   `}
+`;
+
+const ModeHandlerH2 = styled.h2`
+  color: ${({ theme }) => theme.primaryText};
+  font-size: 2.69rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 9px;
+  width: 100%;
 `;
 
 const RandomModeDiv = styled.div`
