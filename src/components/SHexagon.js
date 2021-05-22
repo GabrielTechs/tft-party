@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -9,13 +9,24 @@ import Hexagon from "react-hexagon";
 
 const SHexagon = (props) => {
   const themeContext = useContext(ThemeContext);
+  const [stroke, setStroke] = useState(themeContext.primary);
+
+  useEffect(() => {
+    if (props.stroke === "secondary") {
+      setStroke(themeContext.secondary);
+    } else if (props.stroke === "tertiary") {
+      setStroke(themeContext.tertiary);
+    } else {
+      setStroke(themeContext.primary);
+    }
+  }, [props.stroke, themeContext]);
 
   return (
     <HexagonDiv>
       {props.img ? (
         <Hexagon
           style={{
-            stroke: `${themeContext.primary}`,
+            stroke: `${stroke}`,
             strokeWidth: 20,
           }}
           backgroundImage={props.img}
@@ -25,9 +36,9 @@ const SHexagon = (props) => {
         <Hexagon
           className="umbrella"
           style={{
-            stroke: `${themeContext.primary}`,
+            stroke: `${stroke}`,
             strokeWidth: 30,
-            fill: `${themeContext.primary}`,
+            fill: `${stroke}`,
           }}
           backgroundScale={1.001}
         >
@@ -38,7 +49,7 @@ const SHexagon = (props) => {
       ) : (
         <Hexagon
           style={{
-            stroke: `${themeContext.primary}`,
+            stroke: `${stroke}`,
             strokeWidth: 30,
           }}
           backgroundScale={1.001}
