@@ -28,8 +28,14 @@ const NavBar = (props) => {
   );
 };
 
+NavBar.propTypes = {
+  themeToggler: PropTypes.func,
+  icon: PropTypes.array,
+};
+
 const NavContainer = styled.div`
   position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,10 +80,5 @@ const NavContainer = styled.div`
     }
   }
 `;
-
-NavBar.propTypes = {
-  themeToggler: PropTypes.func,
-  icon: PropTypes.array,
-};
 
 export default NavBar;
