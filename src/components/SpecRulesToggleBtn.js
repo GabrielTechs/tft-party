@@ -25,13 +25,17 @@ const SpecRulesTBtn = styled.button`
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 56px;
-  padding: 10px;
+  max-height: 56px;
+  width: 24%;
+  padding: 6px;
   h2 {
     color: ${({ theme }) => theme.primaryText};
     line-height: 39px;
     margin-left: 5px;
     font-weight: 500;
+  }
+  svg {
+    max-height: 56px;
   }
   ${mediaQueries("lg")`
     width: 39%;
