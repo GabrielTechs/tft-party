@@ -29,6 +29,29 @@ RulesActive.propTypes = {
 const RulesDiv = styled.div`
   display: flex;
   flex-direction: column;
+  background: linear-gradient(
+    169deg,
+    ${({ theme }) => theme.primary} 36%,
+    ${({ theme }) => theme.secondary} 96%
+  );
+  border: 3px solid ${({ theme }) => theme.primary};
+  border-radius: 15px;
+  margin: 69px;
+  padding: 10px;
+  h1 {
+    color: ${({ theme }) => theme.secondaryText};
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 6px;
+  }
+  h2 {
+    color: ${({ theme }) => theme.secondaryText};
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 6px;
+  }
 `;
 
 const RulesContainerDiv = styled.div`
