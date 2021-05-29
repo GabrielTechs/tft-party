@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { mediaQueries } from "../assets/mediaQueries";
 import { Modes, SRules } from "../assets/RulesPlaceHolders";
 
 const RulesActive = (props) => {
@@ -75,6 +76,9 @@ const RulesDiv = styled.div`
     font-weight: 500;
     margin: 6px;
   }
+  ${mediaQueries("md")`
+    margin: 26px;
+  `}
 `;
 
 const RulesContainerDiv = styled.div`
@@ -87,6 +91,8 @@ const RulesContainerDiv = styled.div`
     font-weight: 500;
     margin: 6px;
   }
+  ${mediaQueries("sm")`
+  margin: 26px;`}
 `;
 
 export default RulesActive;
