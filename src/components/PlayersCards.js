@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
+import PlayersNames from "./PlayersNames";
+
 const PlayersCards = () => {
   return (
     <PlayersCardsDiv>
       <h1>Players names</h1>
+      <PlayersNames players="players" />
       <h1>Players setup</h1>
     </PlayersCardsDiv>
   );
