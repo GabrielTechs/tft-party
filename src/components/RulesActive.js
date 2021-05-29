@@ -2,21 +2,44 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { Modes, SRules } from "../assets/RulesPlaceHolders";
+
 const RulesActive = (props) => {
+  const modePh = "Yin-Yang";
+  const sRulesPh = ["Commander 2 star", "Carousel champ"];
+
+  const modeActive = Modes.filter((m) => m.modeName === modePh);
+  let specialRuleActive = [];
+
+  const specialRulesActive = sRulesPh.map((rule) =>
+    SRules.filter((r) => r.specialRuleName === rule)
+  );
+  specialRulesActive.map((rule) => {
+    return rule.map((r) => specialRuleActive.push(r.specialRule));
+  });
+
   return (
     <RulesDiv>
       <h1>Rules active:</h1>
-      <RulesContainerDiv>
-        <h1>Mode:</h1>
-        <h2>mode name</h2>
-        <h2>mode description</h2>
-        <h1>Mode rules:</h1>
-        <h2>rule</h2>
-      </RulesContainerDiv>
-      <RulesContainerDiv>
-        <h1>Special rules:</h1>
-        <h2>- special Rule.</h2>
-      </RulesContainerDiv>
+      {modeActive.map((mode) => (
+        <RulesContainerDiv key={mode.modeName}>
+          <h1>Mode:</h1>
+          <h2>{mode.modeName}</h2>
+          <h2>{mode.modeDescription}</h2>
+          <h1>Mode rules:</h1>
+          {mode.rules.map((rule) => (
+            <h2 key={rule}>{rule}</h2>
+          ))}
+        </RulesContainerDiv>
+      ))}
+      {sRulesPh.length > 0 && (
+        <RulesContainerDiv>
+          <h1>Special rules:</h1>
+          {specialRuleActive.map((sRule) => (
+            <h2 key={sRule}>- {sRule}.</h2>
+          ))}
+        </RulesContainerDiv>
+      )}
     </RulesDiv>
   );
 };
