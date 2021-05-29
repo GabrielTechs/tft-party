@@ -14,6 +14,12 @@ PlayersNames.propTypes = {
   players: PropTypes.array,
 };
 
-const PlayersNamesDiv = styled.div``;
+const PlayersNamesDiv = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 9px;
+`;
 
 export default PlayersNames;
