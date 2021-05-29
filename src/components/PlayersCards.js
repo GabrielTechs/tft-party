@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { mediaQueries } from "../assets/mediaQueries";
 
 const PlayersCards = () => {
   return (
@@ -27,6 +28,9 @@ const PlayersCardsDiv = styled.div`
     text-align: center;
     width: 100%;
   }
+  ${mediaQueries("md")`
+    margin: 26px;
+  `}
 `;
 
 export default PlayersCards;
