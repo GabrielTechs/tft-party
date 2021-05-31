@@ -2,10 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import PlayerName from "./PlayerName";
+
 const PlayersNames = (props) => {
   return (
     <PlayersNamesDiv>
-      <h1>Players {props.players}</h1>
+      {props.players.map((player) => (
+        <PlayerName
+          key={player.player}
+          player={player.player}
+          playerName={player.name}
+          playerBind={player.bind}
+        />
+      ))}
     </PlayersNamesDiv>
   );
 };
