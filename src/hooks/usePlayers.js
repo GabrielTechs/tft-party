@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import useInput from "../hooks/useInput";
 
 const usePlayers = () => {
@@ -18,20 +19,48 @@ const usePlayers = () => {
     "Player 8"
   );
 
-  const playersInputs = [
-    { player: firstPlayer, name: firstPlayerName, bind: bindFirstPlayer },
-    { player: secondPlayer, name: secondPlayerName, bind: bindSecondPlayer },
-    { player: thirdPlayer, name: thirdPlayerName, bind: bindThirdPlayer },
-    { player: fourthPlayer, name: fourthPlayerName, bind: bindFourthPlayer },
-    { player: fifthPlayer, name: fifthPlayerName, bind: bindFifthPlayer },
-    { player: sixthPlayer, name: sixthPlayerName, bind: bindSixthPlayer },
-    {
-      player: seventhPlayer,
-      name: seventhPlayerName,
-      bind: bindSeventhPlayer,
-    },
-    { player: eighthPlayer, name: eighthPlayerName, bind: bindEighthPlayer },
-  ];
+  const playersInputs = useMemo(
+    () => [
+      { player: firstPlayer, name: firstPlayerName, bind: bindFirstPlayer },
+      { player: secondPlayer, name: secondPlayerName, bind: bindSecondPlayer },
+      { player: thirdPlayer, name: thirdPlayerName, bind: bindThirdPlayer },
+      { player: fourthPlayer, name: fourthPlayerName, bind: bindFourthPlayer },
+      { player: fifthPlayer, name: fifthPlayerName, bind: bindFifthPlayer },
+      { player: sixthPlayer, name: sixthPlayerName, bind: bindSixthPlayer },
+      {
+        player: seventhPlayer,
+        name: seventhPlayerName,
+        bind: bindSeventhPlayer,
+      },
+      { player: eighthPlayer, name: eighthPlayerName, bind: bindEighthPlayer },
+    ],
+    [
+      bindEighthPlayer,
+      bindFifthPlayer,
+      bindFirstPlayer,
+      bindFourthPlayer,
+      bindSecondPlayer,
+      bindSeventhPlayer,
+      bindSixthPlayer,
+      bindThirdPlayer,
+      eighthPlayer,
+      eighthPlayerName,
+      fifthPlayer,
+      fifthPlayerName,
+      firstPlayer,
+      firstPlayerName,
+      fourthPlayer,
+      fourthPlayerName,
+      secondPlayer,
+      secondPlayerName,
+      seventhPlayer,
+      seventhPlayerName,
+      sixthPlayer,
+      sixthPlayerName,
+      thirdPlayer,
+      thirdPlayerName,
+    ]
+  );
 
   return { playersInputs };
 };
