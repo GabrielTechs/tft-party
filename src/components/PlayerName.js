@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { mediaQueries } from "../assets/mediaQueries";
+
 const PlayerName = (props) => {
   return (
     <PlayerNameLabel>
@@ -24,6 +26,12 @@ const PlayerNameLabel = styled.label`
   text-align: center;
   margin: 6px;
   min-width: 23%;
+  ${mediaQueries("lg")`
+    min-width: 30%;
+  `}
+  ${mediaQueries("md")`
+    min-width: 69%;
+  `}
 `;
 
 const PlayerNameInput = styled.input`
