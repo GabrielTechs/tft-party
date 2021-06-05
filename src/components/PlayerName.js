@@ -16,7 +16,15 @@ const PlayerName = (props) => {
   );
 };
 
-const PlayerNameLabel = styled.label``;
+const PlayerNameLabel = styled.label`
+  align-self: center;
+  color: ${({ theme }) => theme.primaryText};
+  display: block;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 6px;
+  min-width: 23%;
+`;
 
 const PlayerNameInput = styled.input``;
 
