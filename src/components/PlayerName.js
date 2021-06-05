@@ -26,7 +26,22 @@ const PlayerNameLabel = styled.label`
   min-width: 23%;
 `;
 
-const PlayerNameInput = styled.input``;
+const PlayerNameInput = styled.input`
+  background: linear-gradient(
+    169deg,
+    ${({ theme }) => theme.primary} 36%,
+    ${({ theme }) => theme.secondary} 96%
+  );
+  border: 2px solid ${({ theme }) => theme.primary};
+  border-radius: 12px;
+  color: ${({ theme }) => theme.secondaryText};
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 6px;
+  padding: 9px;
+  text-align: center;
+  width: 100%;
+`;
 
 PlayerName.propTypes = {
   player: PropTypes.string,
