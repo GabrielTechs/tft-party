@@ -20,8 +20,23 @@ ChampionChosen.propTypes = {
   championName: PropTypes.string,
 };
 
-const ChampionChosenDiv = styled.div``;
+const ChampionChosenDiv = styled.div`
+  width: 49%;
+  h4 {
+    color: ${({ theme }) => theme.secondaryText};
+    font-size: 1.69rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+  }
+`;
 
-const ChampionChosenImgDiv = styled.div``;
+const ChampionChosenImgDiv = styled.div`
+  min-width: 69px;
+  min-height: 69px;
+  max-width: 96px;
+  max-height: 100%;
+  margin: 0 auto;
+`;
 
 export default ChampionChosen;
