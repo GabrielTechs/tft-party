@@ -5,6 +5,7 @@ import { mediaQueries } from "../assets/mediaQueries";
 import usePlayers from "../hooks/usePlayers";
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
+import PLayerCard from "./PlayerCard";
 
 const PlayersCards = () => {
   const { playersInputs } = usePlayers();
@@ -15,6 +16,13 @@ const PlayersCards = () => {
       <PlayersNames players={playersInputs} />
       <RerollPlayersSetup />
       <h1>Players setup</h1>
+      {playersInputs.map((player) => (
+        <PLayerCard
+          key={player.player}
+          player={player.player}
+          playerName={player.name}
+        />
+      ))}
     </PlayersCardsDiv>
   );
 };
