@@ -10,7 +10,7 @@ const ChampionChosen = (props) => {
       <ChampionChosenImgDiv>
         <SHexagon img={props.championImg} stroke="tertiary" />
       </ChampionChosenImgDiv>
-      <h4>Hi</h4>
+      <h4>{props.championName}</h4>
     </ChampionChosenDiv>
   );
 };
