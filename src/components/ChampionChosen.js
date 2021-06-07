@@ -8,7 +8,7 @@ const ChampionChosen = (props) => {
   return (
     <ChampionChosenDiv>
       <ChampionChosenImgDiv>
-        <SHexagon img={props.championImg} />
+        <SHexagon img={props.championImg} stroke="tertiary" />
       </ChampionChosenImgDiv>
       <h4>Hi</h4>
     </ChampionChosenDiv>
