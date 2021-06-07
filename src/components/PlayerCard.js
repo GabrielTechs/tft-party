@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
+import ChampionChosen from "./ChampionChosen";
+
 const PlayerCard = (props) => {
   return (
     <PlayerCardDiv>
@@ -12,6 +14,15 @@ const PlayerCard = (props) => {
           <h3 className="player-card-th">: {props.playerName}</h3>
         )}
       </PlayerCardNameDiv>
+      <h2>Chosen ones:</h2>
+      <ChampionChosen
+        championImg="https://rerollcdn.com/characters/Skin/5/Viego.png"
+        championName="Viego"
+      />
+      <ChampionChosen
+        championImg="https://rerollcdn.com/characters/Skin/5/Volibear.png"
+        championName="Volibear"
+      />
     </PlayerCardDiv>
   );
 };
