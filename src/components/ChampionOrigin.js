@@ -2,10 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import SHexagon from "./SHexagon";
+
 const ChampionOrigin = (props) => {
   return (
     <ChampionOriginDiv>
       <ChampionOriginHexaDiv>
+        <SHexagon
+          background={true}
+          icon="https://rerollcdn.com/icons/dawnbringer.png"
+        />
         <h4>Dawnbringer</h4>
       </ChampionOriginHexaDiv>
       <ChampionOriginChampsDiv>
