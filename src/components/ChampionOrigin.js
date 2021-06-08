@@ -34,7 +34,10 @@ ChampionOrigin.propTypes = {
   championOrigin: PropTypes.string,
 };
 
-const ChampionOriginDiv = styled.div``;
+const ChampionOriginDiv = styled.div`
+  display: flex;
+  width: 100%;
+`;
 
 const ChampionOriginHexaDiv = styled.div``;
 
