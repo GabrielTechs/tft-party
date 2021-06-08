@@ -15,12 +15,15 @@ const ChampionOrigin = (props) => {
         <h4>Dawnbringer</h4>
       </ChampionOriginHexaDiv>
       <ChampionOriginChampsDiv>
+        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
       </ChampionOriginChampsDiv>
       <ChampionOriginChampsDiv>
+        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
       </ChampionOriginChampsDiv>
       <ChampionOriginChampsDiv>
+        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
       </ChampionOriginChampsDiv>
     </ChampionOriginDiv>
