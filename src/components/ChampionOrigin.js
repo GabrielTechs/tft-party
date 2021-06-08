@@ -55,6 +55,19 @@ const ChampionOriginHexaDiv = styled.div`
   }
 `;
 
-const ChampionOriginChampsDiv = styled.div``;
+const ChampionOriginChampsDiv = styled.div`
+  min-width: 29px;
+  min-height: 29px;
+  max-width: 39px;
+  max-height: 100%;
+  margin: 13px 3px 0;
+  h4 {
+    color: ${({ theme }) => theme.secondaryText};
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+  }
+`;
 
 export default ChampionOrigin;
