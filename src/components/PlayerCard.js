@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 import ChampionChosen from "./ChampionChosen";
+import ChampionOrigin from "./ChampionOrigin";
 
 const PlayerCard = (props) => {
   return (
@@ -23,6 +24,9 @@ const PlayerCard = (props) => {
         championImg="https://rerollcdn.com/characters/Skin/5/Volibear.png"
         championName="Volibear"
       />
+      <h2>Origins:</h2>
+      <ChampionOrigin />
+      <ChampionOrigin />
     </PlayerCardDiv>
   );
 };
