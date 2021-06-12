@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import ModeHandler from "./components/ModeHandler";
 import SpecialRules from "./components/SpecialRules";
 import RulesActive from "./components/RulesActive";
+import PlayersCards from "./components/PlayersCards";
 
 function App() {
   const { theme, themeToggler, icon } = useTheme();
@@ -22,6 +23,7 @@ function App() {
         <ModeHandler />
         <SpecialRules />
         <RulesActive />
+        <PlayersCards />
       </div>
     </ThemeProvider>
   );
