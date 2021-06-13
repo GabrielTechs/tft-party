@@ -3,26 +3,27 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { mediaQueries } from "../assets/mediaQueries";
-import { Modes, SRules } from "../assets/RulesPlaceHolders";
+import { SRules } from "../assets/RulesPlaceHolders";
+import { useActiveRules } from "../contexts/ActiveRulesContext";
 
 const RulesActive = (props) => {
-  const modePh = "Yin-Yang";
-  const sRulesPh = ["Commander 2 star", "Carousel champ"];
+  const { mode, specialRules } = useActiveRules();
 
-  const modeActive = Modes.filter((m) => m.modeName === modePh);
-  let specialRuleActive = [];
+  let sRuleNamesActive = [];
 
-  const specialRulesActive = sRulesPh.map((rule) =>
-    SRules.filter((r) => r.specialRuleName === rule)
+  const sRulesActive = specialRules.map((sRule) =>
+    SRules.filter((sRuleFilter) => sRuleFilter.specialRuleName === sRule)
   );
-  specialRulesActive.map((rule) => {
-    return rule.map((r) => specialRuleActive.push(r.specialRule));
+  sRulesActive.map((sRuleActive) => {
+    return sRuleActive.map((sRuleActiveDescription) =>
+      sRuleNamesActive.push(sRuleActiveDescription.specialRule)
+    );
   });
 
   return (
     <RulesDiv>
       <h1>Rules active:</h1>
-      {modeActive.map((mode) => (
+      {mode.map((mode) => (
         <RulesContainerDiv key={mode.modeName}>
           <h1>Mode:</h1>
           <h2>{mode.modeName}</h2>
@@ -33,11 +34,11 @@ const RulesActive = (props) => {
           ))}
         </RulesContainerDiv>
       ))}
-      {sRulesPh.length > 0 && (
+      {specialRules.length > 0 && (
         <RulesContainerDiv>
           <h1>Special rules:</h1>
-          {specialRuleActive.map((sRule) => (
-            <h2 key={sRule}>- {sRule}.</h2>
+          {sRuleNamesActive.map((sRule) => (
+            <h2 key={sRule}>- {sRule}</h2>
           ))}
         </RulesContainerDiv>
       )}
