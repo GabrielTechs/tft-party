@@ -1,11 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
 import { mediaQueries } from "../assets/mediaQueries";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+
 const ModeBtn = (props) => {
-  return <SModeBtn>{props.btnValue}</SModeBtn>;
+  const { changeMode } = useActiveRules();
+
+  return (
+    <SModeBtn
+      value={props.btnValue}
+      onClick={(event) => {
+        changeMode(event.target.value);
+      }}
+    >
+      {props.btnValue}
+    </SModeBtn>
+  );
 };
 
 ModeBtn.propTypes = {
