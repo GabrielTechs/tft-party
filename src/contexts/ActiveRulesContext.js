@@ -13,6 +13,7 @@ const initialMode = Modes.filter((mode) => mode.modeNum === 0);
 
 const ActiveRulesProvider = ({ children }) => {
   const [mode, setMode] = useState(initialMode);
+  const [specialRules, setSpecialRules] = useState([]);
 
   const changeMode = (value) => {
     if (value === "Random mode") {
@@ -29,9 +30,20 @@ const ActiveRulesProvider = ({ children }) => {
     }
   };
 
+  const toggleSpecialRule = (specialRule, isActive) => {
+    if (isActive) {
+      const filter = specialRules.filter((sRule) => sRule !== specialRule);
+      return setSpecialRules([...filter]);
+    } else {
+      return setSpecialRules([...specialRules, specialRule]);
+    }
+  };
+
   const activeRules = {
     mode,
+    specialRules,
     changeMode,
+    toggleSpecialRule,
   };
 
   return (
