@@ -15,7 +15,18 @@ const ActiveRulesProvider = ({ children }) => {
   const [mode, setMode] = useState(initialMode);
 
   const changeMode = (value) => {
-    return setMode(Modes.filter((mode) => mode.modeName === value));
+    if (value === "Random mode") {
+      let randomMode = Math.floor(Math.random() * Modes.length);
+      mode.map((activeMode) => {
+        while (randomMode === activeMode.modeNum) {
+          randomMode = Math.floor(Math.random() * Modes.length);
+        }
+        return randomMode;
+      });
+      return setMode(Modes.filter((mode) => mode.modeNum === randomMode));
+    } else {
+      return setMode(Modes.filter((mode) => mode.modeName === value));
+    }
   };
 
   const activeRules = {
