@@ -5,11 +5,19 @@ import styled from "styled-components";
 import SHexagon from "./SHexagon";
 import { mediaQueries } from "../assets/mediaQueries";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+
 const SpecRulesToggleBtn = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const { toggleSpecialRule } = useActiveRules();
+
+  const handleSpecialRule = () => {
+    toggleSpecialRule(props.specRule, isActive);
+    setIsActive((prevIsActive) => !prevIsActive);
+  };
 
   return (
-    <SpecRulesTBtn>
+    <SpecRulesTBtn onClick={handleSpecialRule}>
       <SHexagon background={isActive} />
       <h2>{props.specRule}</h2>
     </SpecRulesTBtn>
