@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -6,16 +6,17 @@ import SHexagon from "./SHexagon";
 import { mediaQueries } from "../assets/mediaQueries";
 
 const SpecRulesToggleBtn = (props) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
-    <SpecRulesTBtn onClick={props.toggle}>
-      <SHexagon background={false} />
+    <SpecRulesTBtn>
+      <SHexagon background={isActive} />
       <h2>{props.specRule}</h2>
     </SpecRulesTBtn>
   );
 };
 
 SpecRulesToggleBtn.propTypes = {
-  toggle: PropTypes.func,
   specRule: PropTypes.string,
 };
 
