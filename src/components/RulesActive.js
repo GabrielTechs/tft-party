@@ -23,17 +23,15 @@ const RulesActive = (props) => {
   return (
     <RulesDiv>
       <h1>Rules active:</h1>
-      {mode.map((mode) => (
-        <RulesContainerDiv key={mode.modeName}>
-          <h1>Mode:</h1>
-          <h2>{mode.modeName}</h2>
-          <h2>{mode.modeDescription}</h2>
-          <h1>Mode rules:</h1>
-          {mode.rules.map((rule) => (
-            <h2 key={rule}>{rule}</h2>
-          ))}
-        </RulesContainerDiv>
-      ))}
+      <RulesContainerDiv>
+        <h1>Mode:</h1>
+        <h2>{mode.modeName}</h2>
+        <h2>{mode.modeDescription}</h2>
+        <h1>Mode rules:</h1>
+        {mode.rules.map((rule) => (
+          <h2 key={rule}>{rule}</h2>
+        ))}
+      </RulesContainerDiv>
       {specialRules.length > 0 && (
         <RulesContainerDiv>
           <h1>Special rules:</h1>
