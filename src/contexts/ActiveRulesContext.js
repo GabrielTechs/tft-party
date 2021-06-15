@@ -9,24 +9,42 @@ const useActiveRules = () => {
   return useContext(ActiveRulesContext);
 };
 
-const initialMode = Modes.filter((mode) => mode.modeNum === 0);
+let tempInitialMode = {};
+Modes.filter((mode) => {
+  if (mode.modeNum === 0) {
+    tempInitialMode = mode;
+  }
+  return false;
+});
+
+const initialMode = tempInitialMode;
 
 const ActiveRulesProvider = ({ children }) => {
   const [mode, setMode] = useState(initialMode);
   const [specialRules, setSpecialRules] = useState([]);
 
   const changeMode = (value) => {
+    let tempMode = {};
     if (value === "Random mode") {
       let randomMode = Math.floor(Math.random() * Modes.length);
-      mode.map((activeMode) => {
-        while (randomMode === activeMode.modeNum) {
-          randomMode = Math.floor(Math.random() * Modes.length);
+      if (randomMode === mode.modeNum) {
+        randomMode = Math.floor(Math.random() * Modes.length);
+      }
+      Modes.filter((mode) => {
+        if (mode.modeNum === randomMode) {
+          return (tempMode = mode);
         }
-        return randomMode;
+        return false;
       });
-      return setMode(Modes.filter((mode) => mode.modeNum === randomMode));
+      return setMode(tempMode);
     } else {
-      return setMode(Modes.filter((mode) => mode.modeName === value));
+      Modes.filter((mode) => {
+        if (mode.modeName === value) {
+          return (tempMode = mode);
+        }
+        return false;
+      });
+      return setMode(tempMode);
     }
   };
 
