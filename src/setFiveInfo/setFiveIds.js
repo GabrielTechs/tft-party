@@ -139,3 +139,23 @@ export const setFiveOriginsId = [
   "Set5_Nightbringer",
   "Set5_Revenant",
 ];
+
+export const setFiveShadowOriginsId = [
+  "Set5_Eternal",
+  "Set5_Abomination",
+  "Set5_Coven",
+  "Set5_Dragonslayer",
+  "Set5_Forgotten",
+  "Set5_Hellion",
+  "Set5_Nightbringer",
+  "Set5_Revenant",
+];
+
+export const setFiveLightOriginsId = [
+  "Set5_Redeemed",
+  "Set5_Dawnbringer",
+  "Set5_Verdant",
+  "Set5_Draconic",
+  "Set5_Ironclad",
+  "Set5_Eternal",
+];
