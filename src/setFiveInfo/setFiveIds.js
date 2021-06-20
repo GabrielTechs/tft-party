@@ -159,3 +159,20 @@ export const setFiveLightOriginsId = [
   "Set5_Ironclad",
   "Set5_Eternal",
 ];
+
+export const setFiveClassId = [
+  "Set5_Assassin",
+  "Set5_Brawler",
+  "Set5_Caretaker",
+  "Set5_Cavalier",
+  "Set5_Cruel",
+  "Set5_GodKing",
+  "Set5_Invoker",
+  "Set5_Knight",
+  "Set5_Legionnaire",
+  "Set5_Mystic",
+  "Set5_Ranger",
+  "Set5_Renewer",
+  "Set5_Skirmisher",
+  "Set5_Spellweaver",
+];
