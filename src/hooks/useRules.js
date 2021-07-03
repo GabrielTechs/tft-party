@@ -4,6 +4,7 @@ import { projectFirestore } from "../firebase/config";
 
 const useRules = () => {
   const [modes, setModes] = useState([]);
+  const [specialRules, setSpecialRules] = useState([]);
 
   useEffect(() => {
     const collectionModesRef = projectFirestore.collection("rules");
@@ -12,6 +13,9 @@ const useRules = () => {
       snap.forEach((doc) => {
         if (doc.data().name === "modes") {
           setModes(doc.data().modes);
+        }
+        if (doc.data().name === "specialRules") {
+          setSpecialRules(doc.data().specialRules);
         }
       });
     });
@@ -22,6 +26,7 @@ const useRules = () => {
 
   return {
     modes,
+    specialRules,
   };
 };
 
