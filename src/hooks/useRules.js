@@ -5,8 +5,10 @@ import { projectFirestore } from "../firebase/config";
 const useRules = () => {
   const [modes, setModes] = useState([]);
   const [specialRules, setSpecialRules] = useState([]);
+  const [loadingRules, setLoadingRules] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
     const collectionModesRef = projectFirestore.collection("rules");
 
     const unsub = collectionModesRef.onSnapshot((snap) => {
@@ -18,8 +20,12 @@ const useRules = () => {
           setSpecialRules(doc.data().specialRules);
         }
       });
+      if (isMounted) {
+        setLoadingRules(false);
+      }
     });
     return () => {
+      isMounted = false;
       unsub();
     };
   }, []);
@@ -27,6 +33,7 @@ const useRules = () => {
   return {
     modes,
     specialRules,
+    loadingRules,
   };
 };
 
