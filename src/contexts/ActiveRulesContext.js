@@ -13,6 +13,7 @@ const ActiveRulesProvider = ({ children }) => {
   const { modes, loadingRules } = useRules();
   const [modeActive, setModeActive] = useState({});
   const [specialRulesActive, setSpecialRulesActive] = useState([]);
+  const [loadingActiveRules, setLoadingActiveRules] = useState(true);
 
   const changeMode = (value) => {
     let tempMode = {};
@@ -51,6 +52,7 @@ const ActiveRulesProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    let isMounted = true;
     if (!loadingRules) {
       modes.filter((mode) => {
         if (mode.modeNum === 0) {
@@ -58,7 +60,13 @@ const ActiveRulesProvider = ({ children }) => {
         }
         return false;
       });
+      if (isMounted) {
+        setLoadingActiveRules(false);
+      }
     }
+    return () => {
+      isMounted = false;
+    };
   }, [loadingRules, modes]);
 
   const activeRules = {
@@ -66,11 +74,12 @@ const ActiveRulesProvider = ({ children }) => {
     specialRulesActive,
     changeMode,
     toggleSpecialRule,
+    loadingActiveRules,
   };
 
   return (
     <ActiveRulesContext.Provider value={activeRules}>
-      {children}
+      {!loadingActiveRules && children}
     </ActiveRulesContext.Provider>
   );
 };
