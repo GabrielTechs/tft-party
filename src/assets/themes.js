@@ -1,8 +1,8 @@
 const lightTheme = {
-  bg: "rgb(242, 253, 255)",
-  primary: "rgb(2, 76, 140)",
-  secondary: "rgb(4, 117, 216)",
-  tertiary: "rgb(92, 124, 165)",
+  bg: "#FEFCFB",
+  primary: "#001F54",
+  secondary: "#034078",
+  tertiary: "#1282A2",
   warning: "rgb(219, 10, 0)",
   success: "rgb(53, 219, 0)",
   primaryText: "rgb(7, 6, 0)",
@@ -10,14 +10,14 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  bg: "rgb(10, 9, 8)",
-  primary: "rgb(242, 4, 91)",
-  secondary: "rgb(242, 4, 115)",
-  tertiary: "rgb(92, 124, 165)",
+  bg: "#0A1128",
+  primary: "#001F54",
+  secondary: "#034078",
+  tertiary: "#3A506B",
   warning: "rgb(219, 15, 7)",
   success: "rgb(5, 242, 23)",
-  primaryText: "rgb(250, 255, 253)",
-  secondaryText: "rgb(7, 6, 0)",
+  primaryText: "#FEFCFB",
+  secondaryText: "#FEFCFB",
 };
 
 const themes = {
