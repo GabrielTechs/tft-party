@@ -1,35 +1,39 @@
 import React from "react";
-
 import "./assets/FontAwesomeIcon";
 import GlobalStyles from "./assets/GlobalStyles";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//imports needed to control the theme
 import { themes } from "./assets/themes";
 import { ThemeProvider } from "styled-components";
 import useTheme from "./hooks/useTheme";
 
+//contexts
 import { ActiveRulesProvider } from "./contexts/ActiveRulesContext";
 
+//general components
 import NavBar from "./components/NavBar";
-import ModeHandler from "./components/ModeHandler";
-import SpecialRules from "./components/SpecialRules";
-import RulesActive from "./components/RulesActive";
-import PlayersCards from "./components/PlayersCards";
+
+//pages
+import HomePage from "./pages/HomePage";
 
 function App() {
   const { theme, themeToggler, icon } = useTheme();
 
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <GlobalStyles />
-      <ActiveRulesProvider>
-        <div className="App">
-          <NavBar theme={theme} themeToggler={themeToggler} icon={icon} />
-          <ModeHandler />
-          <SpecialRules />
-          <RulesActive />
-          <PlayersCards />
-        </div>
-      </ActiveRulesProvider>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={themes[theme]}>
+        <GlobalStyles />
+        <ActiveRulesProvider>
+          <div className="App">
+            <NavBar theme={theme} themeToggler={themeToggler} icon={icon} />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+            </Switch>
+          </div>
+        </ActiveRulesProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 
