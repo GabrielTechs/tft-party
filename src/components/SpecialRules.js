@@ -9,10 +9,10 @@ const SpecialRules = () => {
   return (
     <SpecRulesDiv>
       <SpecRulesH2>Special Rules:</SpecRulesH2>
-      {Object.keys(SRules).map((sRule) => (
+      {SRules.map((sRule) => (
         <SpecialRulesToggleBtn
-          key={sRule}
-          specRule={SRules[sRule].specialRuleName}
+          key={sRule.specialRuleName}
+          specRule={sRule.specialRuleName}
         />
       ))}
     </SpecRulesDiv>
@@ -22,20 +22,20 @@ const SpecialRules = () => {
 const SpecRulesDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin: 0 69px;
-
   ${mediaQueries("md")`
   margin: 26px;
   `}
 `;
 
 const SpecRulesH2 = styled.h2`
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  width: 100%;
   color: ${({ theme }) => theme.primaryText};
+  font-size: 2.69rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 9px;
+  width: 100%;
 `;
 
 export default SpecialRules;

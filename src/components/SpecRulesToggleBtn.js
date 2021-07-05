@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import SHexagon from "./SHexagon";
 import { mediaQueries } from "../assets/mediaQueries";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+
 const SpecRulesToggleBtn = (props) => {
+  const [isActive, setIsActive] = useState(false);
+  const { toggleSpecialRule } = useActiveRules();
+
+  const handleSpecialRule = () => {
+    toggleSpecialRule(props.specRule, isActive);
+    setIsActive((prevIsActive) => !prevIsActive);
+  };
+
   return (
-    <SpecRulesTBtn onClick={props.toggle}>
-      <SHexagon background="none" />
+    <SpecRulesTBtn onClick={handleSpecialRule}>
+      <SHexagon background={isActive} />
       <h2>{props.specRule}</h2>
     </SpecRulesTBtn>
   );
 };
 
 SpecRulesToggleBtn.propTypes = {
-  toggle: PropTypes.func,
   specRule: PropTypes.string,
 };
 
@@ -25,19 +34,23 @@ const SpecRulesTBtn = styled.button`
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 56px;
-  padding: 10px;
+  max-height: 56px;
+  width: 24%;
+  padding: 6px;
   h2 {
     color: ${({ theme }) => theme.primaryText};
     line-height: 39px;
     margin-left: 5px;
     font-weight: 500;
   }
-  ${mediaQueries("md")`
+  svg {
+    max-height: 56px;
+  }
+  ${mediaQueries("lg")`
     width: 39%;
   `}
-  ${mediaQueries("sm")`
-    width: 90%;
+  ${mediaQueries("md")`
+    width: 96%;
   `}
 `;
 
