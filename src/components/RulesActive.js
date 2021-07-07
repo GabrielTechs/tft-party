@@ -3,16 +3,17 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { mediaQueries } from "../assets/mediaQueries";
-import { SRules } from "../assets/RulesPlaceHolders";
 import { useActiveRules } from "../contexts/ActiveRulesContext";
+import useRules from "../hooks/useRules";
 
 const RulesActive = (props) => {
-  const { mode, specialRules } = useActiveRules();
+  const { modeActive, specialRulesActive } = useActiveRules();
+  const { specialRules } = useRules();
 
   let sRuleNamesActive = [];
 
-  const sRulesActive = specialRules.map((sRule) =>
-    SRules.filter((sRuleFilter) => sRuleFilter.specialRuleName === sRule)
+  const sRulesActive = specialRulesActive.map((sRule) =>
+    specialRules.filter((sRuleFilter) => sRuleFilter.specialRuleName === sRule)
   );
   sRulesActive.map((sRuleActive) => {
     return sRuleActive.map((sRuleActiveDescription) =>
@@ -21,21 +22,23 @@ const RulesActive = (props) => {
   });
 
   return (
-    <RulesDiv>
+    <RulesActiveDiv>
       <h1>Rules active:</h1>
-      {mode && (
+      {modeActive ? (
         <RulesContainerDiv>
           <h1>Mode:</h1>
-          <h2>{mode.modeName}</h2>
-          <h2>{mode.modeDescription}</h2>
+          <h2>{modeActive.modeName}</h2>
+          <h2>{modeActive.modeDescription}</h2>
           <h1>Mode rules:</h1>
-          {mode.rules.map((rule) => (
+          {modeActive.rules.map((rule) => (
             <h2 key={rule}>{rule}</h2>
           ))}
         </RulesContainerDiv>
+      ) : (
+        <h1>Loading...</h1>
       )}
 
-      {specialRules.length > 0 && (
+      {specialRulesActive.length > 0 && (
         <RulesContainerDiv>
           <h1>Special rules:</h1>
           {sRuleNamesActive.map((sRule) => (
@@ -43,7 +46,7 @@ const RulesActive = (props) => {
           ))}
         </RulesContainerDiv>
       )}
-    </RulesDiv>
+    </RulesActiveDiv>
   );
 };
 
@@ -52,7 +55,7 @@ RulesActive.propTypes = {
   advancedRules: PropTypes.string,
 };
 
-const RulesDiv = styled.div`
+const RulesActiveDiv = styled.div`
   display: flex;
   flex-direction: column;
   background: linear-gradient(
