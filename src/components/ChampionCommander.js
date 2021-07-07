@@ -4,23 +4,23 @@ import styled from "styled-components";
 
 import SHexagon from "./SHexagon";
 
-const ChampionChosen = (props) => {
+const ChampionCommander = (props) => {
   return (
-    <ChampionChosenDiv>
-      <ChampionChosenImgDiv>
+    <ChampionCommanderDiv>
+      <ChampionCommanderImgDiv>
         <SHexagon img={props.championImg} stroke="tertiary" />
-      </ChampionChosenImgDiv>
+      </ChampionCommanderImgDiv>
       <h4>{props.championName}</h4>
-    </ChampionChosenDiv>
+    </ChampionCommanderDiv>
   );
 };
 
-ChampionChosen.propTypes = {
+ChampionCommander.propTypes = {
   championImg: PropTypes.string,
   championName: PropTypes.string,
 };
 
-const ChampionChosenDiv = styled.div`
+const ChampionCommanderDiv = styled.div`
   width: 49%;
   h4 {
     color: ${({ theme }) => theme.secondaryText};
@@ -31,7 +31,7 @@ const ChampionChosenDiv = styled.div`
   }
 `;
 
-const ChampionChosenImgDiv = styled.div`
+const ChampionCommanderImgDiv = styled.div`
   min-width: 69px;
   min-height: 69px;
   max-width: 96px;
@@ -39,4 +39,4 @@ const ChampionChosenImgDiv = styled.div`
   margin: 0 auto;
 `;
 
-export default ChampionChosen;
+export default ChampionCommander;

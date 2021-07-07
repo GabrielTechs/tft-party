@@ -23,8 +23,8 @@ const RulesActive = (props) => {
   return (
     <RulesDiv>
       <h1>Rules active:</h1>
-      {mode.map((mode) => (
-        <RulesContainerDiv key={mode.modeName}>
+      {mode && (
+        <RulesContainerDiv>
           <h1>Mode:</h1>
           <h2>{mode.modeName}</h2>
           <h2>{mode.modeDescription}</h2>
@@ -33,7 +33,8 @@ const RulesActive = (props) => {
             <h2 key={rule}>{rule}</h2>
           ))}
         </RulesContainerDiv>
-      ))}
+      )}
+
       {specialRules.length > 0 && (
         <RulesContainerDiv>
           <h1>Special rules:</h1>

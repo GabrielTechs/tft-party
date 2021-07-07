@@ -3,9 +3,11 @@ import styled from "styled-components";
 import ModeBtn from "./ModeBtn";
 
 import { mediaQueries } from "../assets/mediaQueries";
-import { Modes } from "../assets/RulesPlaceHolders";
+import useRules from "../hooks/useRules";
 
 const ModeHandler = () => {
+  const { modes } = useRules();
+
   return (
     <ModeHandlerDiv>
       <ModeHandlerH2>Game modes:</ModeHandlerH2>
@@ -13,9 +15,10 @@ const ModeHandler = () => {
         <ModeBtn btnValue="Random mode" />
       </RandomModeDiv>
       <ModesDiv>
-        {Modes.map((mode) => (
-          <ModeBtn key={mode.modeName} btnValue={mode.modeName} />
-        ))}
+        {modes &&
+          modes.map((mode) => (
+            <ModeBtn key={mode.modeName} btnValue={mode.modeName} />
+          ))}
       </ModesDiv>
     </ModeHandlerDiv>
   );
