@@ -1,11 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
 import { mediaQueries } from "../assets/mediaQueries";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+
 const ModeBtn = (props) => {
-  return <SModeBtn>{props.btnValue}</SModeBtn>;
+  const { modeActive, changeMode } = useActiveRules();
+
+  let modeBtnActive = "";
+  if (modeActive.modeName === props.btnValue) {
+    modeBtnActive = "mode-btn-active";
+  }
+
+  return (
+    <SModeBtn
+      className={modeBtnActive}
+      value={props.btnValue}
+      onClick={(event) => {
+        changeMode(event.target.value);
+      }}
+    >
+      {props.btnValue}
+    </SModeBtn>
+  );
 };
 
 ModeBtn.propTypes = {
@@ -35,8 +53,8 @@ const SModeBtn = styled.button`
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.26),
       0 16px 19px 0 rgba(0, 0, 0, 0.19);
   }
-  :active {
-    background: ${({ theme }) => theme.secondary};
+  &.mode-btn-active {
+    background: ${({ theme }) => theme.tertiary};
   }
   ${mediaQueries("md")`
     width: 39%;
