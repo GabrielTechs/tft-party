@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { championCostColor } from "../assets/colors";
 
 import Hexagon from "react-hexagon";
 
@@ -16,6 +17,16 @@ const SHexagon = (props) => {
       setStroke(themeContext.secondary);
     } else if (props.stroke === "tertiary") {
       setStroke(themeContext.tertiary);
+    } else if (props.stroke === "black") {
+      setStroke("black");
+    } else if (
+      props.stroke === "1" ||
+      props.stroke === "2" ||
+      props.stroke === "3" ||
+      props.stroke === "4" ||
+      props.stroke === "5"
+    ) {
+      setStroke(championCostColor[props.stroke - 1]);
     } else {
       setStroke(themeContext.primary);
     }
@@ -43,7 +54,7 @@ const SHexagon = (props) => {
           backgroundScale={1.001}
         >
           {props.icon && (
-            <image href={props.icon} x="16%" y="16%" height="69%" width="69%" />
+            <image href={props.icon} x="26%" y="26%" height="49%" width="49%" />
           )}
         </Hexagon>
       ) : (
@@ -64,6 +75,7 @@ SHexagon.propTypes = {
   background: PropTypes.bool,
   icon: PropTypes.string,
   stroke: PropTypes.string,
+  traitBg: PropTypes.string,
 };
 
 const HexagonDiv = styled.div`
