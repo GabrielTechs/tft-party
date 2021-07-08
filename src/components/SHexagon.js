@@ -4,13 +4,14 @@ import styled from "styled-components";
 
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import { championCostColor } from "../assets/colors";
+import { championCostColor, traitBgColor } from "../assets/colors";
 
 import Hexagon from "react-hexagon";
 
 const SHexagon = (props) => {
   const themeContext = useContext(ThemeContext);
   const [stroke, setStroke] = useState(themeContext.primary);
+  const [bgColor, setBgColor] = useState(themeContext.primary);
 
   useEffect(() => {
     if (props.stroke === "secondary") {
@@ -32,6 +33,24 @@ const SHexagon = (props) => {
     }
   }, [props.stroke, themeContext]);
 
+  useEffect(() => {
+    if (props.background) {
+      if (props.traitBg) {
+        if (props.traitBg === "primary") {
+          setBgColor(themeContext.primary);
+        } else if (props.traitBg === "secondary") {
+          setBgColor(themeContext.secondary);
+        } else if (props.traitBg === "tertiary") {
+          setBgColor(themeContext.tertiary);
+        } else {
+          setBgColor(traitBgColor[props.traitBg]);
+        }
+      } else {
+        setBgColor(themeContext.primary);
+      }
+    }
+  }, [props.background, props.traitBg, themeContext]);
+
   return (
     <HexagonDiv>
       {props.img ? (
@@ -49,7 +68,7 @@ const SHexagon = (props) => {
           style={{
             stroke: `${stroke}`,
             strokeWidth: 30,
-            fill: `${stroke}`,
+            fill: `${bgColor}`,
           }}
           backgroundScale={1.001}
         >
