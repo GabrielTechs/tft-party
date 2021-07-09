@@ -3,45 +3,50 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { mediaQueries } from "../assets/mediaQueries";
-import { Modes, SRules } from "../assets/RulesPlaceHolders";
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+import useRules from "../hooks/useRules";
 
 const RulesActive = (props) => {
-  const modePh = "Yin-Yang";
-  const sRulesPh = ["Commander 2 star", "Carousel champ"];
+  const { modeActive, specialRulesActive } = useActiveRules();
+  const { specialRules } = useRules();
 
-  const modeActive = Modes.filter((m) => m.modeName === modePh);
-  let specialRuleActive = [];
+  let sRuleNamesActive = [];
 
-  const specialRulesActive = sRulesPh.map((rule) =>
-    SRules.filter((r) => r.specialRuleName === rule)
+  const sRulesActive = specialRulesActive.map((sRule) =>
+    specialRules.filter((sRuleFilter) => sRuleFilter.specialRuleName === sRule)
   );
-  specialRulesActive.map((rule) => {
-    return rule.map((r) => specialRuleActive.push(r.specialRule));
+  sRulesActive.map((sRuleActive) => {
+    return sRuleActive.map((sRuleActiveDescription) =>
+      sRuleNamesActive.push(sRuleActiveDescription.specialRule)
+    );
   });
 
   return (
-    <RulesDiv>
+    <RulesActiveDiv>
       <h1>Rules active:</h1>
-      {modeActive.map((mode) => (
-        <RulesContainerDiv key={mode.modeName}>
+      {modeActive ? (
+        <RulesContainerDiv>
           <h1>Mode:</h1>
-          <h2>{mode.modeName}</h2>
-          <h2>{mode.modeDescription}</h2>
+          <h2>{modeActive.modeName}</h2>
+          <h2>{modeActive.modeDescription}</h2>
           <h1>Mode rules:</h1>
-          {mode.rules.map((rule) => (
+          {modeActive.rules.map((rule) => (
             <h2 key={rule}>{rule}</h2>
           ))}
         </RulesContainerDiv>
-      ))}
-      {sRulesPh.length > 0 && (
+      ) : (
+        <h1>Loading...</h1>
+      )}
+
+      {specialRulesActive.length > 0 && (
         <RulesContainerDiv>
           <h1>Special rules:</h1>
-          {specialRuleActive.map((sRule) => (
-            <h2 key={sRule}>- {sRule}.</h2>
+          {sRuleNamesActive.map((sRule) => (
+            <h2 key={sRule}>- {sRule}</h2>
           ))}
         </RulesContainerDiv>
       )}
-    </RulesDiv>
+    </RulesActiveDiv>
   );
 };
 
@@ -50,7 +55,7 @@ RulesActive.propTypes = {
   advancedRules: PropTypes.string,
 };
 
-const RulesDiv = styled.div`
+const RulesActiveDiv = styled.div`
   display: flex;
   flex-direction: column;
   background: linear-gradient(

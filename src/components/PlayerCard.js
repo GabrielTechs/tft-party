@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
-import ChampionChosen from "./ChampionChosen";
+import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
 const PlayerCard = (props) => {
@@ -15,12 +15,12 @@ const PlayerCard = (props) => {
           <h3 className="player-card-th">: {props.playerName}</h3>
         )}
       </PlayerCardNameDiv>
-      <h2>Chosen ones:</h2>
-      <ChampionChosen
+      <h2>Commanders:</h2>
+      <ChampionCommander
         championImg="https://rerollcdn.com/characters/Skin/5/Viego.png"
         championName="Viego"
       />
-      <ChampionChosen
+      <ChampionCommander
         championImg="https://rerollcdn.com/characters/Skin/5/Volibear.png"
         championName="Volibear"
       />
