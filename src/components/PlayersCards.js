@@ -19,13 +19,19 @@ const PlayersCards = () => {
       <PlayersNames players={playersInputs} />
       <RerollPlayersSetup />
       <h1>Players setup</h1>
-      {playersInputs.map((player) => (
-        <PLayerCard
-          key={player.player}
-          player={player.player}
-          playerName={player.name}
-        />
-      ))}
+      {playersInputs.map((player) =>
+        champions.docsCategory.map((champ) =>
+          traits.docsCategory.map((trait) => (
+            <PLayerCard
+              key={player.player}
+              player={player.player}
+              playerName={player.name}
+              champions={champ.champions}
+              traits={trait.traits}
+            />
+          ))
+        )
+      )}
     </PlayersCardsDiv>
   );
 };
