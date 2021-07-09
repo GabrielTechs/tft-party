@@ -6,9 +6,12 @@ import usePlayers from "../hooks/usePlayers";
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
 import PLayerCard from "./PlayerCard";
+import useFirestore from "../hooks/useFirestore";
 
 const PlayersCards = () => {
   const { playersInputs } = usePlayers();
+  const champions = useFirestore("tftSet5Info", "name", "champions");
+  const traits = useFirestore("tftSet5Info", "name", "traits");
 
   return (
     <PlayersCardsDiv>
@@ -32,8 +35,6 @@ const PlayersCardsDiv = styled.div`
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: space-around;
-  border: 3px solid ${({ theme }) => theme.primary};
-  border-radius: 15px;
   margin: 69px;
   h1 {
     color: ${({ theme }) => theme.primaryText};
