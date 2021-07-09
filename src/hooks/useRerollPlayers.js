@@ -1,9 +1,13 @@
 import { useState, useCallback } from "react";
 
-import { setFiveChampionsId } from "../setFiveInfo/setFiveIds";
+import {
+  setFiveChampionsId,
+  setFiveOriginsId,
+} from "../setFiveInfo/setFiveIds";
 
 const useRerollPlayers = () => {
   const [commanders, setCommanders] = useState([]);
+  const [origins, setOrigins] = useState([]);
 
   const getRandomPositions = (arrayLength, numOfPositions) => {
     let positions = [];
@@ -32,8 +36,20 @@ const useRerollPlayers = () => {
     });
   }, []);
 
+  const getOrigin = useCallback((numOrigins) => {
+    let randomOriginsPositions = getRandomPositions(
+      setFiveOriginsId.length,
+      numOrigins
+    );
+    randomOriginsPositions.map((randomOrigin) => {
+      let originToPush = setFiveOriginsId[randomOrigin];
+      return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+    });
+  }, []);
+
   return {
     commanders,
+    origins,
   };
 };
 
