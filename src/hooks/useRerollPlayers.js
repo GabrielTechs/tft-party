@@ -1,11 +1,13 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
 import {
   setFiveChampionsId,
   setFiveOriginsId,
 } from "../setFiveInfo/setFiveIds";
 
 const useRerollPlayers = () => {
+  const { modeActive } = useActiveRules();
   const [commanders, setCommanders] = useState([]);
   const [origins, setOrigins] = useState([]);
 
@@ -47,14 +49,27 @@ const useRerollPlayers = () => {
     });
   }, []);
 
-  const getModeSetup = useCallback(() => {
-    setCommanders([]);
-    setOrigins([]);
+  const getModeSetup = useCallback(
+    (modeActive) => {
+      setCommanders([]);
+      setOrigins([]);
 
-    getCommander(1);
+      getCommander(modeActive.commanders, modeActive.bothCommanders);
 
-    getOrigin(1);
-  }, [getCommander, getOrigin]);
+      getOrigin(modeActive.origins, modeActive.bothOrigins);
+    },
+    [getCommander, getOrigin]
+  );
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      getModeSetup(modeActive);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [getModeSetup, modeActive]);
 
   return {
     commanders,
