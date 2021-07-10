@@ -10,6 +10,7 @@ const useRerollPlayers = () => {
   const { modeActive } = useActiveRules();
   const [commanders, setCommanders] = useState([]);
   const [origins, setOrigins] = useState([]);
+  const [teamSide, setTeamSide] = useState("none");
 
   const getRandomPositions = (arrayLength, numOfPositions) => {
     let positions = [];
@@ -54,9 +55,20 @@ const useRerollPlayers = () => {
       setCommanders([]);
       setOrigins([]);
 
-      getCommander(modeActive.commanders, modeActive.bothCommanders);
+      if (modeActive.needSide) {
+        let tempTeamSide = Math.floor(Math.random() * 100);
+        if (tempTeamSide < 45) {
+          setTeamSide("light");
+        } else {
+          setTeamSide("shadow");
+        }
+      } else {
+        setTeamSide("none");
+      }
 
-      getOrigin(modeActive.origins, modeActive.bothOrigins);
+      getCommander(modeActive.commanders);
+
+      getOrigin(modeActive.origins);
     },
     [getCommander, getOrigin]
   );
@@ -74,6 +86,7 @@ const useRerollPlayers = () => {
   return {
     commanders,
     origins,
+    teamSide,
     getModeSetup,
   };
 };
