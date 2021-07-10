@@ -47,9 +47,19 @@ const useRerollPlayers = () => {
     });
   }, []);
 
+  const getModeSetup = useCallback(() => {
+    setCommanders([]);
+    setOrigins([]);
+
+    getCommander(1);
+
+    getOrigin(1);
+  }, [getCommander, getOrigin]);
+
   return {
     commanders,
     origins,
+    getModeSetup,
   };
 };
 
