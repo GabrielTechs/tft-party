@@ -128,9 +128,11 @@ const useRerollPlayers = () => {
         setTeamSide("none");
       }
 
-      getCommander(modeActive.commanders);
+      if (modeActive) {
+        getCommander(modeActive.commanders);
 
-      getOrigin(modeActive.origins);
+        getOrigin(modeActive.origins);
+      }
     },
     [getCommander, getOrigin]
   );
