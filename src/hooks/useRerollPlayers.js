@@ -3,7 +3,11 @@ import { useState, useEffect, useCallback } from "react";
 import { useActiveRules } from "../contexts/ActiveRulesContext";
 import {
   setFiveChampionsId,
+  setFiveShadowChampionsId,
+  setFiveLightChampionsId,
   setFiveOriginsId,
+  setFiveShadowOriginsId,
+  setFiveLightOriginsId,
 } from "../setFiveInfo/setFiveIds";
 
 const useRerollPlayers = () => {
@@ -25,30 +29,88 @@ const useRerollPlayers = () => {
     return positions;
   };
 
-  const getCommander = useCallback((numCommanders) => {
-    let randomCommanderPositions = getRandomPositions(
-      setFiveChampionsId.length,
-      numCommanders
-    );
-    randomCommanderPositions.map((randomCommander) => {
-      let commanderToPush = setFiveChampionsId[randomCommander];
-      return setCommanders((prevCommanders) => [
-        ...prevCommanders,
-        commanderToPush,
-      ]);
-    });
-  }, []);
+  const getCommander = useCallback(
+    (numCommanders) => {
+      if (teamSide === "light") {
+        let randomCommanderPositions = getRandomPositions(
+          setFiveLightChampionsId.length,
+          numCommanders
+        );
 
-  const getOrigin = useCallback((numOrigins) => {
-    let randomOriginsPositions = getRandomPositions(
-      setFiveOriginsId.length,
-      numOrigins
-    );
-    randomOriginsPositions.map((randomOrigin) => {
-      let originToPush = setFiveOriginsId[randomOrigin];
-      return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
-    });
-  }, []);
+        randomCommanderPositions.map((randomCommander) => {
+          let commanderToPush = setFiveLightChampionsId[randomCommander];
+          return setCommanders((prevCommanders) => [
+            ...prevCommanders,
+            commanderToPush,
+          ]);
+        });
+      } else if (teamSide === "shadow") {
+        let randomCommanderPositions = getRandomPositions(
+          setFiveShadowChampionsId.length,
+          numCommanders
+        );
+
+        randomCommanderPositions.map((randomCommander) => {
+          let commanderToPush = setFiveShadowChampionsId[randomCommander];
+          return setCommanders((prevCommanders) => [
+            ...prevCommanders,
+            commanderToPush,
+          ]);
+        });
+      } else {
+        let randomCommanderPositions = getRandomPositions(
+          setFiveChampionsId.length,
+          numCommanders
+        );
+
+        randomCommanderPositions.map((randomCommander) => {
+          let commanderToPush = setFiveChampionsId[randomCommander];
+          return setCommanders((prevCommanders) => [
+            ...prevCommanders,
+            commanderToPush,
+          ]);
+        });
+      }
+    },
+    [teamSide]
+  );
+
+  const getOrigin = useCallback(
+    (numOrigins) => {
+      if (teamSide === "light") {
+        let randomOriginsPositions = getRandomPositions(
+          setFiveLightOriginsId.length,
+          numOrigins
+        );
+
+        randomOriginsPositions.map((randomOrigin) => {
+          let originToPush = setFiveLightOriginsId[randomOrigin];
+          return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+        });
+      } else if (teamSide === "shadow") {
+        let randomOriginsPositions = getRandomPositions(
+          setFiveShadowOriginsId.length,
+          numOrigins
+        );
+
+        randomOriginsPositions.map((randomOrigin) => {
+          let originToPush = setFiveShadowOriginsId[randomOrigin];
+          return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+        });
+      } else {
+        let randomOriginsPositions = getRandomPositions(
+          setFiveOriginsId.length,
+          numOrigins
+        );
+
+        randomOriginsPositions.map((randomOrigin) => {
+          let originToPush = setFiveOriginsId[randomOrigin];
+          return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+        });
+      }
+    },
+    [teamSide]
+  );
 
   const getModeSetup = useCallback(
     (modeActive) => {
