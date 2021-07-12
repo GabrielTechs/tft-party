@@ -32,11 +32,12 @@ const useRerollPlayers = () => {
   const getCommander = useCallback(
     (numCommanders) => {
       if (teamSide === "light") {
+        //getting a commander from the light side
         let randomCommanderPositions = getRandomPositions(
           setFiveLightChampionsId.length,
           numCommanders
         );
-
+        //setting light commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
           let commanderToPush = setFiveLightChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
@@ -45,11 +46,12 @@ const useRerollPlayers = () => {
           ]);
         });
       } else if (teamSide === "shadow") {
+        //getting a commander from the shadow side
         let randomCommanderPositions = getRandomPositions(
           setFiveShadowChampionsId.length,
           numCommanders
         );
-
+        //setting shadow commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
           let commanderToPush = setFiveShadowChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
@@ -58,11 +60,12 @@ const useRerollPlayers = () => {
           ]);
         });
       } else {
+        //getting a commander from any side
         let randomCommanderPositions = getRandomPositions(
           setFiveChampionsId.length,
           numCommanders
         );
-
+        //setting commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
           let commanderToPush = setFiveChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
@@ -78,31 +81,34 @@ const useRerollPlayers = () => {
   const getOrigin = useCallback(
     (numOrigins) => {
       if (teamSide === "light") {
+        //getting random origins from the light side
         let randomOriginsPositions = getRandomPositions(
           setFiveLightOriginsId.length,
           numOrigins
         );
-
+        //setting light origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
           let originToPush = setFiveLightOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
       } else if (teamSide === "shadow") {
+        //getting random origins from the shadow side
         let randomOriginsPositions = getRandomPositions(
           setFiveShadowOriginsId.length,
           numOrigins
         );
-
+        //setting shadow origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
           let originToPush = setFiveShadowOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
       } else {
+        //getting random origins from the any side
         let randomOriginsPositions = getRandomPositions(
           setFiveOriginsId.length,
           numOrigins
         );
-
+        //setting the origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
           let originToPush = setFiveOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
@@ -114,9 +120,10 @@ const useRerollPlayers = () => {
 
   const getModeSetup = useCallback(
     (modeActive) => {
+      //cleaning commanders and origins
       setCommanders([]);
       setOrigins([]);
-
+      //conditioning if the mode need an especific side
       if (modeActive.needSide) {
         let tempTeamSide = Math.floor(Math.random() * 100);
         if (tempTeamSide < 45) {
@@ -127,10 +134,11 @@ const useRerollPlayers = () => {
       } else {
         setTeamSide("none");
       }
-
+      //checking that mode exist to prevent bugs
       if (modeActive) {
+        //getting the ammount of commanders needed
         getCommander(modeActive.commanders);
-
+        //getting the ammount of oringis needed
         getOrigin(modeActive.origins);
       }
     },
