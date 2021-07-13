@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
@@ -9,6 +9,7 @@ import PLayerCard from "./PlayerCard";
 import useFirestore from "../hooks/useFirestore";
 
 const PlayersCards = () => {
+  const [rerollSetup, setRerollSetup] = useState(false);
   const { playersInputs } = usePlayers();
   const champions = useFirestore("tftSet5Info", "name", "champions");
   const traits = useFirestore("tftSet5Info", "name", "traits");
