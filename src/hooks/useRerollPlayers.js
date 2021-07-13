@@ -108,7 +108,30 @@ const useRerollPlayers = () => {
   );
 
   const getOrigin = useCallback(
-    (numOrigins) => {
+    (numOrigins, bothOrigins) => {
+      if (bothOrigins) {
+        //getting random origins from the light side
+        let randomLightOriginsPositions = getRandomPositions(
+          setFiveLightOriginsId.length,
+          numOrigins
+        );
+        //setting light origins to origins state
+        randomLightOriginsPositions.map((randomOrigin) => {
+          let originToPush = setFiveLightOriginsId[randomOrigin];
+          return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+        });
+        //getting random origins from the shadow side
+        let randomShadowOriginsPositions = getRandomPositions(
+          setFiveShadowOriginsId.length,
+          numOrigins
+        );
+        //setting shadow origins to origins state
+        randomShadowOriginsPositions.map((randomOrigin) => {
+          let originToPush = setFiveShadowOriginsId[randomOrigin];
+          return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
+        });
+        return;
+      }
       if (teamSide === "light") {
         //getting random origins from the light side
         let randomOriginsPositions = getRandomPositions(
@@ -168,7 +191,7 @@ const useRerollPlayers = () => {
         //getting the ammount of commanders needed
         getCommander(modeActive.commanders, modeActive.bothCommanders);
         //getting the ammount of oringis needed
-        getOrigin(modeActive.origins);
+        getOrigin(modeActive.origins, modeActive.bothOrigins);
       }
     },
     [getCommander, getOrigin]
