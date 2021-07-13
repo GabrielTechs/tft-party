@@ -30,7 +30,36 @@ const useRerollPlayers = () => {
   };
 
   const getCommander = useCallback(
-    (numCommanders) => {
+    (numCommanders, bothCommanders) => {
+      if (bothCommanders) {
+        //getting a commander from the light side
+        let randomLightCommanderPositions = getRandomPositions(
+          setFiveLightChampionsId.length,
+          numCommanders
+        );
+        //setting light commanders to commander state
+        randomLightCommanderPositions.map((randomCommander) => {
+          let commanderToPush = setFiveLightChampionsId[randomCommander];
+          return setCommanders((prevCommanders) => [
+            ...prevCommanders,
+            commanderToPush,
+          ]);
+        });
+        //getting a commander from the shadow side
+        let randomShadowCommanderPositions = getRandomPositions(
+          setFiveShadowChampionsId.length,
+          numCommanders
+        );
+        //setting shadow commanders to commander state
+        randomShadowCommanderPositions.map((randomCommander) => {
+          let commanderToPush = setFiveShadowChampionsId[randomCommander];
+          return setCommanders((prevCommanders) => [
+            ...prevCommanders,
+            commanderToPush,
+          ]);
+        });
+        return;
+      }
       if (teamSide === "light") {
         //getting a commander from the light side
         let randomCommanderPositions = getRandomPositions(
@@ -137,7 +166,7 @@ const useRerollPlayers = () => {
       //checking that mode exist to prevent bugs
       if (modeActive) {
         //getting the ammount of commanders needed
-        getCommander(modeActive.commanders);
+        getCommander(modeActive.commanders, modeActive.bothCommanders);
         //getting the ammount of oringis needed
         getOrigin(modeActive.origins);
       }
