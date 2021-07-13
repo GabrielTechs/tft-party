@@ -14,6 +14,10 @@ const PlayersCards = () => {
   const champions = useFirestore("tftSet5Info", "name", "champions");
   const traits = useFirestore("tftSet5Info", "name", "traits");
 
+  const handleReroll = () => {
+    setRerollSetup((prevRerollSetup) => !prevRerollSetup);
+  };
+
   return (
     <PlayersCardsDiv>
       <h1>Players names</h1>
