@@ -28,7 +28,7 @@ const PlayersCards = () => {
         champions.docsCategory.map((champ) =>
           traits.docsCategory.map((trait) => (
             <PLayerCard
-              key={player.player}
+              key={`${rerollSetup} ${player.player}`}
               player={player.player}
               playerName={player.name}
               champions={champ.champions}
