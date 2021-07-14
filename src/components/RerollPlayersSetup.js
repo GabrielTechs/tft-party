@@ -16,7 +16,11 @@ RerollPlayersSetup.propTypes = {
   handleRerollSetup: PropTypes.func,
 };
 
-const RerollPSDiv = styled.div``;
+const RerollPSDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
 
 const RerollSetupBtn = styled.button``;
 
