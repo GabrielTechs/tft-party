@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { mediaQueries } from "../assets/mediaQueries";
 
 const RerollPlayersSetup = (props) => {
   return (
@@ -48,6 +49,12 @@ const RerollSetupBtn = styled.button`
   :active {
     background: ${({ theme }) => theme.secondary};
   }
+  ${mediaQueries("md")`
+  width: 39%;
+`}
+  ${mediaQueries("sm")`
+  width: 96%;
+`}
 `;
 
 export default RerollPlayersSetup;
