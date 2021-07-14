@@ -5,7 +5,9 @@ import styled from "styled-components";
 const RerollPlayersSetup = (props) => {
   return (
     <RerollPSDiv>
-      <RerollSetupBtn>Reroll setup</RerollSetupBtn>
+      <RerollSetupBtn value="Reroll setup" onClick={props.handleRerollSetup}>
+        Reroll setup
+      </RerollSetupBtn>
     </RerollPSDiv>
   );
 };
