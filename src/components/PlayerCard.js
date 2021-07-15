@@ -73,6 +73,7 @@ PlayerCard.propTypes = {
 };
 
 const PlayerCardDiv = styled.div`
+  min-height: 200px;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -100,6 +101,14 @@ const PlayerCardDiv = styled.div`
     display: inline-block;
     font-size: 1.69rem;
     font-weight: 600;
+  }
+  h4 {
+    color: ${({ theme }) => theme.secondaryText};
+    display: inline-block;
+    font-size: 1.69rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
   }
   .player-card-th {
     font-weight: 500;
