@@ -6,7 +6,11 @@ import { mediaQueries } from "../assets/mediaQueries";
 import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
+import useRerollPlayers from "../hooks/useRerollPlayers";
+
 const PlayerCard = (props) => {
+  const { commanders, origins, teamSide } = useRerollPlayers();
+
   return (
     <PlayerCardDiv>
       <PlayerCardNameDiv>
@@ -34,6 +38,8 @@ const PlayerCard = (props) => {
 PlayerCard.propTypes = {
   player: PropTypes.string,
   playerName: PropTypes.string,
+  champions: PropTypes.array,
+  traits: PropTypes.array,
 };
 
 const PlayerCardDiv = styled.div`
