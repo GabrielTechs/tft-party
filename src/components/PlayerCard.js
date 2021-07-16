@@ -6,7 +6,11 @@ import { mediaQueries } from "../assets/mediaQueries";
 import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
+import useRerollPlayers from "../hooks/useRerollPlayers";
+
 const PlayerCard = (props) => {
+  const { commanders, origins, teamSide } = useRerollPlayers();
+
   return (
     <PlayerCardDiv>
       <PlayerCardNameDiv>
@@ -15,18 +19,48 @@ const PlayerCard = (props) => {
           <h3 className="player-card-th">: {props.playerName}</h3>
         )}
       </PlayerCardNameDiv>
-      <h2>Commanders:</h2>
-      <ChampionCommander
-        championImg="https://rerollcdn.com/characters/Skin/5/Viego.png"
-        championName="Viego"
-      />
-      <ChampionCommander
-        championImg="https://rerollcdn.com/characters/Skin/5/Volibear.png"
-        championName="Volibear"
-      />
-      <h2>Origins:</h2>
-      <ChampionOrigin />
-      <ChampionOrigin />
+      {teamSide !== "none" && <h4>Team {teamSide}</h4>}
+      {commanders.length > 0 && (
+        <React.Fragment>
+          <h2>Commanders:</h2>
+          {commanders.map((champion, index) =>
+            props.champions.map((champ) => {
+              if (champ.championId === champion) {
+                return (
+                  <ChampionCommander
+                    key={index}
+                    championImg={champ.imgUrl}
+                    championName={champ.name}
+                    championCost={champ.cost}
+                  />
+                );
+              } else {
+                return false;
+              }
+            })
+          )}
+        </React.Fragment>
+      )}
+      {origins.length > 0 && (
+        <React.Fragment>
+          <h2>Origins:</h2>
+          {origins.map((originId, index) =>
+            props.traits.map((trait) => {
+              if (trait.key === originId) {
+                return (
+                  <ChampionOrigin
+                    key={index}
+                    origin={trait}
+                    champions={props.champions}
+                  />
+                );
+              } else {
+                return false;
+              }
+            })
+          )}
+        </React.Fragment>
+      )}
     </PlayerCardDiv>
   );
 };
@@ -34,9 +68,12 @@ const PlayerCard = (props) => {
 PlayerCard.propTypes = {
   player: PropTypes.string,
   playerName: PropTypes.string,
+  champions: PropTypes.array,
+  traits: PropTypes.array,
 };
 
 const PlayerCardDiv = styled.div`
+  min-height: 200px;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -64,6 +101,14 @@ const PlayerCardDiv = styled.div`
     display: inline-block;
     font-size: 1.69rem;
     font-weight: 600;
+  }
+  h4 {
+    color: ${({ theme }) => theme.secondaryText};
+    display: inline-block;
+    font-size: 1.69rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
   }
   .player-card-th {
     font-weight: 500;

@@ -8,7 +8,10 @@ const ChampionCommander = (props) => {
   return (
     <ChampionCommanderDiv>
       <ChampionCommanderImgDiv>
-        <SHexagon img={props.championImg} stroke="tertiary" />
+        <SHexagon
+          img={props.championImg}
+          stroke={props.championCost.toString()}
+        />
       </ChampionCommanderImgDiv>
       <h4>{props.championName}</h4>
     </ChampionCommanderDiv>
@@ -18,10 +21,12 @@ const ChampionCommander = (props) => {
 ChampionCommander.propTypes = {
   championImg: PropTypes.string,
   championName: PropTypes.string,
+  championCost: PropTypes.number,
 };
 
 const ChampionCommanderDiv = styled.div`
   width: 49%;
+  margin: 6px auto;
   h4 {
     color: ${({ theme }) => theme.secondaryText};
     font-size: 1.69rem;
