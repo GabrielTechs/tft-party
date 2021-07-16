@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThemeToggleBtn from "./ThemeToggleBtn";
@@ -11,14 +12,14 @@ const NavBar = (props) => {
       <div className="logo">TFT Party</div>
       <ul>
         <li>
-          <a href="/" alt="home" to="/">
+          <Link to="/" alt="home">
             <FontAwesomeIcon icon={["fa", "home"]} size="1x" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/" alt="rules" to="/servicios">
+          <Link to="/rules" alt="rules">
             <FontAwesomeIcon icon={["fa", "list-ul"]} size="1x" />
-          </a>
+          </Link>
         </li>
         <li>
           <ThemeToggleBtn themeToggler={props.themeToggler} icon={props.icon} />
