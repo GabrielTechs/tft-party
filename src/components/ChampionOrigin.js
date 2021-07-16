@@ -41,6 +41,7 @@ ChampionOrigin.propTypes = {
 
 const ChampionOriginDiv = styled.div`
   display: flex;
+  margin: 6px 0px;
   width: 100%;
 `;
 
