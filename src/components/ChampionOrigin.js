@@ -16,24 +16,25 @@ const ChampionOrigin = (props) => {
         />
         <h5>{props.origin.name}</h5>
       </ChampionOriginHexaDiv>
-      <ChampionOriginChampsDiv>
+      <ChampionOriginChampDiv>
         <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
-      <ChampionOriginChampsDiv>
+      </ChampionOriginChampDiv>
+      <ChampionOriginChampDiv>
         <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
-      <ChampionOriginChampsDiv>
+      </ChampionOriginChampDiv>
+      <ChampionOriginChampDiv>
         <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
         <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
+      </ChampionOriginChampDiv>
     </ChampionOriginDiv>
   );
 };
 
 ChampionOrigin.propTypes = {
   origin: PropTypes.object,
+  champions: PropTypes.array,
 };
 
 const ChampionOriginDiv = styled.div`
@@ -57,18 +58,25 @@ const ChampionOriginHexaDiv = styled.div`
   }
 `;
 
-const ChampionOriginChampsDiv = styled.div`
-  min-width: 29px;
-  min-height: 29px;
-  max-width: 39px;
-  max-height: 100%;
-  margin: 13px 3px 0;
-  h4 {
+const ChampionsOriginChampsDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const ChampionOriginChampDiv = styled.div`
+  text-align: center;
+  margin: auto 9px auto 0;
+  padding: 2px;
+  h5 {
     color: ${({ theme }) => theme.secondaryText};
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
     width: 100%;
+  }
+  svg {
+    width: 46px;
   }
 `;
 
