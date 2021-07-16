@@ -45,9 +45,11 @@ const ChampionOriginDiv = styled.div`
 `;
 
 const ChampionOriginHexaDiv = styled.div`
-  margin: 6px 9px;
+  margin: auto 9px auto 0px;
+  min-width: 74px;
   text-align: center;
-  h4 {
+  h5 {
+    display: inline-block;
     color: ${({ theme }) => theme.secondaryText};
     font-size: 1.16rem;
     font-weight: 600;
@@ -55,7 +57,7 @@ const ChampionOriginHexaDiv = styled.div`
     width: 100%;
   }
   svg {
-    min-width: 49px;
+    min-width: 46px;
     max-width: 49px;
   }
 `;
