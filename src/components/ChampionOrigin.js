@@ -10,9 +10,11 @@ const ChampionOrigin = (props) => {
       <ChampionOriginHexaDiv>
         <SHexagon
           background={true}
-          icon="https://rerollcdn.com/icons/dawnbringer.png"
+          icon={props.origin.imgUrl}
+          traitBg={props.origin.name}
+          stroke={"black"}
         />
-        <h4>Dawnbringer</h4>
+        <h5>{props.origin.name}</h5>
       </ChampionOriginHexaDiv>
       <ChampionOriginChampsDiv>
         <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
@@ -31,7 +33,7 @@ const ChampionOrigin = (props) => {
 };
 
 ChampionOrigin.propTypes = {
-  championOrigin: PropTypes.string,
+  origin: PropTypes.object,
 };
 
 const ChampionOriginDiv = styled.div`
