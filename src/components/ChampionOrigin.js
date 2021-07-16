@@ -16,18 +16,20 @@ const ChampionOrigin = (props) => {
         />
         <h5>{props.origin.name}</h5>
       </ChampionOriginHexaDiv>
-      <ChampionOriginChampDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampDiv>
-      <ChampionOriginChampDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampDiv>
-      <ChampionOriginChampDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampDiv>
+      <ChampionsOriginChampsDiv>
+        {props.champions.map((champ, index) => {
+          if (champ.traits.includes(props.origin.key)) {
+            return (
+              <ChampionOriginChampDiv key={index}>
+                <SHexagon img={champ.imgUrl} stroke={champ.cost.toString()} />
+                <h5>{champ.name}</h5>
+              </ChampionOriginChampDiv>
+            );
+          } else {
+            return false;
+          }
+        })}
+      </ChampionsOriginChampsDiv>
     </ChampionOriginDiv>
   );
 };
