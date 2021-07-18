@@ -1,7 +1,13 @@
 import React, { Fragment } from "react";
 
+import Rules from "../components/Rules";
+
 const RulesPage = () => {
-  return <Fragment></Fragment>;
+  return (
+    <Fragment>
+      <Rules />
+    </Fragment>
+  );
 };
 
 export default RulesPage;
