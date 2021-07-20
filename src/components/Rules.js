@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { mediaQueries } from "../assets/mediaQueries";
 
 import useRules from "../hooks/useRules";
 
@@ -28,20 +27,6 @@ const Rules = () => {
   );
 };
 
-const RulesDiv = styled.div`
-  margin: 69px;
-  h1 {
-    text-align: center;
-    color: ${({ theme }) => theme.primaryText};
-    display: inline-block;
-    font-size: 2.69rem;
-    font-weight: 500;
-    margin: 9px;
-    width: 100%;
-  }
-  ${mediaQueries("md")`
-  margin: 26px;
-`}
-`;
+const RulesDiv = styled.div``;
 
 export default Rules;
