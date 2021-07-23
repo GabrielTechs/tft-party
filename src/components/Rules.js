@@ -27,6 +27,17 @@ const Rules = () => {
   );
 };
 
-const RulesDiv = styled.div``;
+const RulesDiv = styled.div`
+  margin: 69px;
+  h1 {
+    text-align: center;
+    color: ${({ theme }) => theme.primaryText};
+    display: inline-block;
+    font-size: 2.69rem;
+    font-weight: 500;
+    margin: 9px;
+    width: 100%;
+  }
+`;
 
 export default Rules;
