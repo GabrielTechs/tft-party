@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
+import { mediaQueries } from "../assets/mediaQueries";
 
 import useRules from "../hooks/useRules";
 
@@ -38,6 +39,9 @@ const RulesDiv = styled.div`
     margin: 9px;
     width: 100%;
   }
+  ${mediaQueries("md")`
+  margin: 26px;
+`}
 `;
 
 export default Rules;
