@@ -1,0 +1,10 @@
+{
+  "name": "TftParty",
+  "short_name": "TftParty",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "TftParty web app",
+  "icons": []
+}
