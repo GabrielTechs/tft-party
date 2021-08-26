@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import useFirestore from "./useFirestore";
 
 const useImagesByName = (imageName) => {
@@ -7,20 +7,23 @@ const useImagesByName = (imageName) => {
 
   const images = useFirestore("images", "name", "images");
 
-  const getImage = (imageName) => {
-    setGettingImage(true);
-    setImage({});
-    images.docsCategory.map((imagesDoc) => {
-      return imagesDoc.images.map((image) => {
-        if (image.name === imageName) {
-          setGettingImage(false);
-          return setImage(image);
-        } else {
-          return false;
-        }
+  const getImage = useCallback(
+    (imageName) => {
+      setGettingImage(true);
+      setImage({});
+      images.docsCategory.map((imagesDoc) => {
+        return imagesDoc.images.map((image) => {
+          if (image.name === imageName) {
+            setGettingImage(false);
+            return setImage(image);
+          } else {
+            return false;
+          }
+        });
       });
-    });
-  };
+    },
+    [images.docsCategory]
+  );
 
   return { images, image, gettingImage };
 };
