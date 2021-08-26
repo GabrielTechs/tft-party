@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useFirestore from "./useFirestore";
 
 const useImagesByName = (imageName) => {
@@ -24,6 +24,16 @@ const useImagesByName = (imageName) => {
     },
     [images.docsCategory]
   );
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      getImage(imageName);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [getImage, imageName]);
 
   return { images, image, gettingImage };
 };
