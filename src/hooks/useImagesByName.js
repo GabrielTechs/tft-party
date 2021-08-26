@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 const useImagesByName = (imageName) => {
-  return {};
+  const [image, setImage] = useState({});
+
+  return { image };
 };
 
 export default useImagesByName;
