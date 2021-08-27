@@ -178,7 +178,7 @@ const useRerollPlayers = () => {
       //conditioning if the mode need an especific side
       if (modeActive.needSide) {
         let tempTeamSide = Math.floor(Math.random() * 100);
-        if (tempTeamSide < 45) {
+        if (tempTeamSide < 55) {
           setTeamSide("light");
         } else {
           setTeamSide("shadow");
