@@ -11,7 +11,7 @@ import useSetInfo from "../hooks/useSetInfo";
 const PlayersCards = () => {
   const [rerollSetup, setRerollSetup] = useState(false);
   const { playersInputs } = usePlayers();
-  const { champions, traits } = useSetInfo();
+  const { champions, traits, loadingSetInfo } = useSetInfo();
 
   const handleRerollSetup = () => {
     setRerollSetup((prevRerollSetup) => !prevRerollSetup);
@@ -23,15 +23,19 @@ const PlayersCards = () => {
       <PlayersNames players={playersInputs} />
       <RerollPlayersSetup handleRerollSetup={handleRerollSetup} />
       <h1>Players setup</h1>
-      {playersInputs.map((player) => (
-        <PLayerCard
-          key={`${rerollSetup} ${player.player}`}
-          player={player.player}
-          playerName={player.name}
-          champions={champions}
-          traits={traits}
-        />
-      ))}
+      {!loadingSetInfo ? (
+        playersInputs.map((player) => (
+          <PLayerCard
+            key={`${rerollSetup} ${player.player}`}
+            player={player.player}
+            playerName={player.name}
+            champions={champions}
+            traits={traits}
+          />
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </PlayersCardsDiv>
   );
 };
