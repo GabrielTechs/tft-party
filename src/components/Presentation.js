@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import useImagesByName from "../hooks/useImagesByName";
 
 const Presentation = () => {
+  const { image } = useImagesByName("intro");
+
   return <PresentationDiv></PresentationDiv>;
 };
 
