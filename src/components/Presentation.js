@@ -5,7 +5,11 @@ import useImagesByName from "../hooks/useImagesByName";
 const Presentation = () => {
   const { image } = useImagesByName("intro");
 
-  return <PresentationDiv></PresentationDiv>;
+  return (
+    <PresentationDiv>
+      <img src={image.imgUrl} alt=""></img>
+    </PresentationDiv>
+  );
 };
 
 const PresentationDiv = styled.div`
