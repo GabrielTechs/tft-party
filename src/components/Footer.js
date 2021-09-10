@@ -9,6 +9,9 @@ const Footer = () => {
         policy using assets owned by Riot Games. Riot Games does not endorse or
         sponsor this project.
       </h1>
+      <h2>
+        Diseñado por Gabriel H. Alguacil © 2021 Todos los derechos reservados.
+      </h2>
     </FooterDiv>
   );
 };
