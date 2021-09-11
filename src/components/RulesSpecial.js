@@ -5,12 +5,13 @@ import PropTypes from "prop-types";
 const RulesSpecial = (props) => {
   return (
     <RulesSpecialDiv>
-      {props.specialRules.map((specialRule) => (
-        <div key={specialRule.specialRuleName}>
-          <h2>{specialRule.specialRuleName}: </h2>
-          <h3>{specialRule.specialRule}</h3>
-        </div>
-      ))}
+      {props.specialRules &&
+        props.specialRules.map((specialRule) => (
+          <div key={specialRule.specialRuleName}>
+            <h2>{specialRule.specialRuleName}: </h2>
+            <h3>{specialRule.specialRule}</h3>
+          </div>
+        ))}
     </RulesSpecialDiv>
   );
 };

@@ -90,14 +90,6 @@ const RulesContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 9px;
-  h2 {
-    display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 6px;
-  }
-  ${mediaQueries("sm")`
-  margin: 26px;`}
 `;
 
 export default RulesActive;
