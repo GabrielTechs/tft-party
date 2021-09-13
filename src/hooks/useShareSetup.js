@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 const useShareSetup = () => {
-  return {};
+  const [playersSetup, setPlayerSetup] = useState();
+
+  return { playersSetup };
 };
 
 export default useShareSetup;
