@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useActiveRules } from "../contexts/ActiveRulesContext";
+
 const playersSetupInitialState = [
   { player: "Player 1" },
   { player: "Player 2" },
@@ -12,6 +14,7 @@ const playersSetupInitialState = [
 ];
 
 const useShareSetup = () => {
+  const { modeActive, specialRulesActive } = useActiveRules();
   const [playersSetup, setPlayerSetup] = useState(playersSetupInitialState);
   const [idToShare, setIdToShare] = useState("");
 
