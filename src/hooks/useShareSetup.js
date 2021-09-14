@@ -19,6 +19,8 @@ const useShareSetup = () => {
   const [idToShare, setIdToShare] = useState("");
 
   const saveSetup = (player, playerName, commanders, origins, teamSide) => {
+    //this function will be called on each player card
+    //to set each player setup conditioned by player id (Ex: Player 1...)
     setPlayerSetup((playersSetup) =>
       playersSetup.map((playerSetted) =>
         playerSetted.player === player
