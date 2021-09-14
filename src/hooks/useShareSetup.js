@@ -18,7 +18,23 @@ const useShareSetup = () => {
   const [playersSetup, setPlayerSetup] = useState(playersSetupInitialState);
   const [idToShare, setIdToShare] = useState("");
 
-  return { playersSetup, idToShare };
+  const saveSetup = (player, playerName, commanders, origins, teamSide) => {
+    setPlayerSetup((playersSetup) =>
+      playersSetup.map((playerSetted) =>
+        playerSetted.player === player
+          ? {
+              ...playerSetted,
+              playerName,
+              commanders,
+              origins,
+              teamSide,
+            }
+          : playerSetted
+      )
+    );
+  };
+
+  return { playersSetup, saveSetup, idToShare };
 };
 
 export default useShareSetup;
