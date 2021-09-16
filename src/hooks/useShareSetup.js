@@ -41,12 +41,14 @@ const useShareSetup = () => {
   );
 
   const shareSetup = () => {
+    const timestamp = new Date();
     projectFirestore
       .collection("sharedSetups")
       .add({
         modeActive,
         specialRulesActive,
         playersSetup,
+        date: timestamp,
       })
       .then((docRef) => {
         setIdToShare(docRef.id);
