@@ -9,6 +9,7 @@ import PlayersCards from "../components/PlayersCards";
 const HomePage = () => {
   return (
     <Fragment>
+      <Presentation />
       <ModeHandler />
       <SpecialRules />
       <RulesActive />
