@@ -40,7 +40,15 @@ const useShareSetup = () => {
     []
   );
 
-  return { playersSetup, saveSetup, idToShare };
+  const shareSetup = () => {
+    projectFirestore.collection("sharedSetups").add({
+      modeActive,
+      specialRulesActive,
+      playersSetup,
+    });
+  };
+
+  return { playersSetup, saveSetup, shareSetup, idToShare };
 };
 
 export default useShareSetup;
