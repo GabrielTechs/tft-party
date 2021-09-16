@@ -41,11 +41,16 @@ const useShareSetup = () => {
   );
 
   const shareSetup = () => {
-    projectFirestore.collection("sharedSetups").add({
-      modeActive,
-      specialRulesActive,
-      playersSetup,
-    });
+    projectFirestore
+      .collection("sharedSetups")
+      .add({
+        modeActive,
+        specialRulesActive,
+        playersSetup,
+      })
+      .then((docRef) => {
+        setIdToShare(docRef.id);
+      });
   };
 
   return { playersSetup, saveSetup, shareSetup, idToShare };
