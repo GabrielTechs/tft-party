@@ -5,6 +5,7 @@ import ModeHandler from "../components/ModeHandler";
 import SpecialRules from "../components/SpecialRules";
 import RulesActive from "../components/RulesActive";
 import PlayersCards from "../components/PlayersCards";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <SpecialRules />
       <RulesActive />
       <PlayersCards />
+      <Footer />
     </Fragment>
   );
 };
