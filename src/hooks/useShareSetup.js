@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 
 import { useActiveRules } from "../contexts/ActiveRulesContext";
+import { projectFirestore } from "../firebase/config";
 
 const playersSetupInitialState = [
   { player: "Player 1" },
