@@ -42,6 +42,8 @@ const useShareSetup = () => {
 
   const shareSetup = () => {
     const timestamp = new Date();
+    //adding a new setup to the db in the "sharedSetups" collection
+    //then setting the doc id to the state idToShare
     projectFirestore
       .collection("sharedSetups")
       .add({
