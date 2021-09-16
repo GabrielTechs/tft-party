@@ -15,14 +15,14 @@ const playersSetupInitialState = [
 
 const useShareSetup = () => {
   const { modeActive, specialRulesActive } = useActiveRules();
-  const [playersSetup, setPlayerSetup] = useState(playersSetupInitialState);
+  const [playersSetup, setPlayersSetup] = useState(playersSetupInitialState);
   const [idToShare, setIdToShare] = useState("");
 
   const saveSetup = useCallback(
     (player, playerName, commanders, origins, teamSide) => {
       //this function will be called on each player card
       //to set each player setup conditioned by player id (Ex: Player 1...)
-      setPlayerSetup((playersSetup) =>
+      setPlayersSetup((playersSetup) =>
         playersSetup.map((playerSetted) =>
           playerSetted.player === player
             ? {
