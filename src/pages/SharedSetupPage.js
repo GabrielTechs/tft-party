@@ -1,7 +1,13 @@
 import React, { Fragment } from "react";
 
-const SharedSetupPage = () => {
-  return <Fragment></Fragment>;
+import SharedSetup from "../components/SharedSetup";
+
+const SharedSetupPage = (props) => {
+  return (
+    <Fragment>
+      <SharedSetup />
+    </Fragment>
+  );
 };
 
 export default SharedSetupPage;
