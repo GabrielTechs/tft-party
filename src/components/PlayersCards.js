@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 import usePlayers from "../hooks/usePlayers";
+import useSetInfo from "../hooks/useSetInfo";
+import useShareSetup from "../hooks/useShareSetup";
+
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
 import PLayerCard from "./PlayerCard";
-import useSetInfo from "../hooks/useSetInfo";
 
 const PlayersCards = () => {
   const [rerollSetup, setRerollSetup] = useState(false);
