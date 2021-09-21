@@ -35,6 +35,7 @@ const PlayersCards = () => {
             champions={champions}
             traits={traits}
             saveSetup={saveSetup}
+            sharedSetup={{}}
           />
         ))
       ) : (
