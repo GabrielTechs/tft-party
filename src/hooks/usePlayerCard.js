@@ -12,6 +12,7 @@ const playerSetupInitialState = {
 
 const usePlayerCard = (props) => {
   const [playerSetup, setPlayerSetup] = useState(playerSetupInitialState);
+  const { commanders, origins, teamSide } = useRerollPlayers();
 
   return { playerSetup };
 };
