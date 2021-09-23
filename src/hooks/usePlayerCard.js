@@ -37,6 +37,13 @@ const usePlayerCard = (props) => {
         origins,
         teamSide
       );
+      saveCardSetup(
+        props.player,
+        props.playerName,
+        commanders,
+        origins,
+        teamSide
+      );
     }
     return () => {
       isMounted = false;
