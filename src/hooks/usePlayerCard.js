@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import useRerollPlayers from "../hooks/useRerollPlayers";
 
@@ -26,6 +26,30 @@ const usePlayerCard = (props) => {
     },
     []
   );
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      props.saveSetup(
+        props.player,
+        props.playerName,
+        commanders,
+        origins,
+        teamSide
+      );
+    }
+    return () => {
+      isMounted = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    commanders,
+    origins,
+    teamSide,
+    saveCardSetup,
+    props.playerName,
+    props.saveSetup,
+  ]);
 
   return { playerSetup };
 };
