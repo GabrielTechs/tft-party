@@ -30,20 +30,30 @@ const usePlayerCard = (props) => {
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      props.saveSetup(
-        props.player,
-        props.playerName,
-        commanders,
-        origins,
-        teamSide
-      );
-      saveCardSetup(
-        props.player,
-        props.playerName,
-        commanders,
-        origins,
-        teamSide
-      );
+      if (
+        props.sharedSetup &&
+        Object.keys(props.sharedSetup).length === 0 &&
+        props.sharedSetup.constructor === Object
+      ) {
+        props.saveSetup(
+          props.player,
+          props.playerName,
+          commanders,
+          origins,
+          teamSide
+        );
+        saveCardSetup(
+          props.player,
+          props.playerName,
+          commanders,
+          origins,
+          teamSide
+        );
+      } else {
+        const { player, playerName, commanders, origins, teamSide } =
+          props.sharedSetup;
+        saveCardSetup(player, playerName, commanders, origins, teamSide);
+      }
     }
     return () => {
       isMounted = false;
