@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 import useRerollPlayers from "../hooks/useRerollPlayers";
 
@@ -14,15 +14,18 @@ const usePlayerCard = (props) => {
   const [playerSetup, setPlayerSetup] = useState(playerSetupInitialState);
   const { commanders, origins, teamSide } = useRerollPlayers();
 
-  const saveCardSetup = (player, playerName, commanders, origins, teamSide) => {
-    setPlayerSetup({
-      player,
-      playerName,
-      commanders,
-      origins,
-      teamSide,
-    });
-  };
+  const saveCardSetup = useCallback(
+    (player, playerName, commanders, origins, teamSide) => {
+      setPlayerSetup({
+        player,
+        playerName,
+        commanders,
+        origins,
+        teamSide,
+      });
+    },
+    []
+  );
 
   return { playerSetup };
 };
