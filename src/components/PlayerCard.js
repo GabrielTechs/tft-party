@@ -72,6 +72,8 @@ PlayerCard.propTypes = {
   playerName: PropTypes.string,
   champions: PropTypes.array,
   traits: PropTypes.array,
+  saveSetup: PropTypes.func,
+  sharedSetup: PropTypes.object,
 };
 
 const PlayerCardDiv = styled.div`
