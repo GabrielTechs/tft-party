@@ -7,6 +7,7 @@ import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
 import useRerollPlayers from "../hooks/useRerollPlayers";
+import usePlayerCard from "../hooks/usePlayerCard";
 
 const PlayerCard = (props) => {
   const { commanders, origins, teamSide } = useRerollPlayers();
@@ -113,6 +114,7 @@ const PlayerCardDiv = styled.div`
   .player-card-th {
     font-weight: 500;
   }
+
   ${mediaQueries("md")`
     width: 96%;
   `}
