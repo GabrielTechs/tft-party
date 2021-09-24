@@ -10,6 +10,7 @@ import useRerollPlayers from "../hooks/useRerollPlayers";
 import usePlayerCard from "../hooks/usePlayerCard";
 
 const PlayerCard = (props) => {
+  const { playerSetup } = usePlayerCard(props);
   const { commanders, origins, teamSide } = useRerollPlayers();
 
   return (
