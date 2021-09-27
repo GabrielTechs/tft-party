@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import SaveSetupBtn from "./SaveSetupBtn";
+
 const ShareSetup = (props) => {
   return <ShareSetupDiv></ShareSetupDiv>;
 };
