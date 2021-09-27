@@ -5,7 +5,11 @@ import styled from "styled-components";
 import SaveSetupBtn from "./SaveSetupBtn";
 
 const ShareSetup = (props) => {
-  return <ShareSetupDiv></ShareSetupDiv>;
+  return (
+    <ShareSetupDiv>
+      <SaveSetupBtn shareSetup={props.shareSetup} />
+    </ShareSetupDiv>
+  );
 };
 
 ShareSetup.propTypes = {
