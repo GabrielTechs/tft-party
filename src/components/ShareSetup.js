@@ -8,6 +8,7 @@ const ShareSetup = (props) => {
 
 ShareSetup.propTypes = {
   shareSetup: PropTypes.func,
+  idToShare: PropTypes.string,
 };
 
 const ShareSetupDiv = styled.div``;
