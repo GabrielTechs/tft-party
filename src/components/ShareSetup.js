@@ -9,6 +9,7 @@ const ShareSetup = (props) => {
   return (
     <ShareSetupDiv>
       <SaveSetupBtn shareSetup={props.shareSetup} />
+      <SavedSetupLink idToShare={props.idToShare} />
     </ShareSetupDiv>
   );
 };
