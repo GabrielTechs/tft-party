@@ -19,6 +19,13 @@ ShareSetup.propTypes = {
   idToShare: PropTypes.string,
 };
 
-const ShareSetupDiv = styled.div``;
+const ShareSetupDiv = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 69px;
+`;
 
 export default ShareSetup;
