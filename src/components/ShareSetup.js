@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import SaveSetupBtn from "./SaveSetupBtn";
+import SavedSetupLink from "./SavedSetupLink";
 
 const ShareSetup = (props) => {
   return (
