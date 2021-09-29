@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { mediaQueries } from "../assets/mediaQueries";
 
 const SaveSetupBtn = (props) => {
   return <SBtnSaveSetup>Get link to share</SBtnSaveSetup>;
@@ -35,6 +36,9 @@ const SBtnSaveSetup = styled.button`
   :active {
     background: ${({ theme }) => theme.secondary};
   }
+  ${mediaQueries("sm")`
+  width: 96%;
+`}
 `;
 
 export default SaveSetupBtn;
