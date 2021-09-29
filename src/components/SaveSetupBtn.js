@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 const SaveSetupBtn = (props) => {
-  return <SBtnSaveSetup>Get link to share</SBtnSaveSetup>;
+  return (
+    <SBtnSaveSetup value="Reroll setup" onClick={props.shareSetup}>
+      Get link to share
+    </SBtnSaveSetup>
+  );
 };
 
 SaveSetupBtn.propTypes = {
