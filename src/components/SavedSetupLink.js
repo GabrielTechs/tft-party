@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const SavedSetupLink = (props) => {
-  return <SavedSetupLinkText></SavedSetupLinkText>;
+  return <SavedSetupLinkText>{props.idToShare}</SavedSetupLinkText>;
 };
 
 SavedSetupLink.propTypes = {
