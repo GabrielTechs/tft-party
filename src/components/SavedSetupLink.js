@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { mediaQueries } from "../assets/mediaQueries";
 
 const SavedSetupLink = (props) => {
   return <SavedSetupLinkText>{props.idToShare}</SavedSetupLinkText>;
@@ -24,6 +25,9 @@ const SavedSetupLinkText = styled.p`
   padding: 9px 16px;
   text-align: center;
   width: 39%;
+  ${mediaQueries("sm")`
+  width: 96%;
+`}
 `;
 
 export default SavedSetupLink;
