@@ -10,6 +10,20 @@ SavedSetupLink.propTypes = {
   idToShare: PropTypes.string,
 };
 
-const SavedSetupLinkText = styled.p``;
+const SavedSetupLinkText = styled.p`
+  background: linear-gradient(
+    169deg,
+    ${({ theme }) => theme.primary} 36%,
+    ${({ theme }) => theme.secondary} 96%
+  );
+  border: 2px solid ${({ theme }) => theme.primary};
+  border-radius: 0 0 69px 69px;
+  color: ${({ theme }) => theme.secondaryText};
+  display: block;
+  font-size: 1.5rem;
+  padding: 9px 16px;
+  text-align: center;
+  width: 39%;
+`;
 
 export default SavedSetupLink;
