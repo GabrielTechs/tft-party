@@ -25,7 +25,7 @@ const SpecRulesToggleBtn = (props) => {
 };
 
 SpecRulesToggleBtn.propTypes = {
-  specRule: PropTypes.string,
+  specRule: PropTypes.object,
 };
 
 const SpecRulesTBtn = styled.button`
