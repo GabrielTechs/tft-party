@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 const SavedSetupLink = (props) => {
   const [linkToShare, setLinkToShare] = useState("-");
+
+  useEffect(() => {
+    if (props.idToShare) {
+      setLinkToShare(`tftparty.com/shared/${props.idToShare}`);
+    }
+  }, [props.idToShare]);
 
   return <SavedSetupLinkText>{linkToShare}</SavedSetupLinkText>;
 };
