@@ -42,7 +42,7 @@ const PlayersCards = () => {
       ) : (
         <h1>Loading...</h1>
       )}
-      <ShareSetup />
+      <ShareSetup shareSetup={shareSetup} idToShare={idToShare} />
     </PlayersCardsDiv>
   );
 };
