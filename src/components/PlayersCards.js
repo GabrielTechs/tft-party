@@ -15,7 +15,7 @@ const PlayersCards = () => {
   const [rerollSetup, setRerollSetup] = useState(false);
   const { playersInputs } = usePlayers();
   const { champions, traits, loadingSetInfo } = useSetInfo();
-  const { saveSetup } = useShareSetup();
+  const { saveSetup, shareSetup, idToShare } = useShareSetup();
 
   const handleRerollSetup = () => {
     setRerollSetup((prevRerollSetup) => !prevRerollSetup);
