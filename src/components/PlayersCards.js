@@ -9,6 +9,7 @@ import useShareSetup from "../hooks/useShareSetup";
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
 import PLayerCard from "./PlayerCard";
+import ShareSetup from "./ShareSetup";
 
 const PlayersCards = () => {
   const [rerollSetup, setRerollSetup] = useState(false);
