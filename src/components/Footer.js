@@ -5,9 +5,11 @@ const Footer = () => {
   return (
     <FooterDiv>
       <h1>
-        tftParty was created under Riot Games &quot;Legal Jibber Jabber&quot;
-        policy using assets owned by Riot Games. Riot Games does not endorse or
-        sponsor this project.
+        tftParty isn&#8217;t endorsed by Riot Games and doesn&#8217;t reflect
+        the views or opinions of Riot Games or anyone officially involved in
+        producing or managing League of Legends. League of Legends and Riot
+        Games are trademarks or registered trademarks of Riot Games, Inc. League
+        of Legends © Riot Games, Inc.
       </h1>
       <h2>
         Diseñado por Gabriel H. Alguacil © 2021 Todos los derechos reservados.
