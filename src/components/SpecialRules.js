@@ -13,10 +13,7 @@ const SpecialRules = () => {
       <SpecRulesH2>Special Rules:</SpecRulesH2>
       {specialRules &&
         specialRules.map((sRule) => (
-          <SpecialRulesToggleBtn
-            key={sRule.specialRuleName}
-            specRule={sRule.specialRuleName}
-          />
+          <SpecialRulesToggleBtn key={sRule.specialRuleName} specRule={sRule} />
         ))}
     </SpecRulesDiv>
   );
