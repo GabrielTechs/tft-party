@@ -12,7 +12,7 @@ const Footer = () => {
         of Legends © Riot Games, Inc.
       </h1>
       <h2>
-        Diseñado por Gabriel H. Alguacil © 2021 Todos los derechos reservados.
+        © tftParty 2021 all rights reserved. Designed by Gabriel H. Alguacil.
       </h2>
     </FooterDiv>
   );
