@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import SharedSetup from "../components/SharedSetup";
 
 const SharedSetupPage = (props) => {
+  const setupId = props.match.params.setupId;
+
   return (
     <Fragment>
-      <SharedSetup />
+      <SharedSetup setupId={setupId} />
     </Fragment>
   );
 };
