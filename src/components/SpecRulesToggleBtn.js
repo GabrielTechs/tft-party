@@ -19,13 +19,13 @@ const SpecRulesToggleBtn = (props) => {
   return (
     <SpecRulesTBtn onClick={handleSpecialRule}>
       <SHexagon background={isActive} />
-      <h2>{props.specRule}</h2>
+      <h2>{props.specRule.specialRuleName}</h2>
     </SpecRulesTBtn>
   );
 };
 
 SpecRulesToggleBtn.propTypes = {
-  specRule: PropTypes.string,
+  specRule: PropTypes.object,
 };
 
 const SpecRulesTBtn = styled.button`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
@@ -6,24 +6,26 @@ import { mediaQueries } from "../assets/mediaQueries";
 import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
-import useRerollPlayers from "../hooks/useRerollPlayers";
+import usePlayerCard from "../hooks/usePlayerCard";
 
 const PlayerCard = (props) => {
-  const { commanders, origins, teamSide } = useRerollPlayers();
+  const { playerSetup } = usePlayerCard(props);
 
   return (
     <PlayerCardDiv>
       <PlayerCardNameDiv>
-        <h3>{props.player}</h3>
-        {props.playerName && (
-          <h3 className="player-card-th">: {props.playerName}</h3>
+        <h3>{playerSetup.player}</h3>
+        {playerSetup.playerName && (
+          <h3 className="player-card-th">: {playerSetup.playerName}</h3>
         )}
       </PlayerCardNameDiv>
-      {teamSide !== "none" && <h4>Team {teamSide}</h4>}
-      {commanders.length > 0 && (
-        <React.Fragment>
+
+      {playerSetup.teamSide !== "none" && <h4>Team {playerSetup.teamSide}</h4>}
+
+      {playerSetup.commanders.length > 0 && (
+        <Fragment>
           <h2>Commanders:</h2>
-          {commanders.map((champion, index) =>
+          {playerSetup.commanders.map((champion, index) =>
             props.champions.map((champ) => {
               if (champ.championId === champion) {
                 return (
@@ -39,12 +41,13 @@ const PlayerCard = (props) => {
               }
             })
           )}
-        </React.Fragment>
+        </Fragment>
       )}
-      {origins.length > 0 && (
-        <React.Fragment>
+
+      {playerSetup.origins.length > 0 && (
+        <Fragment>
           <h2>Origins:</h2>
-          {origins.map((originId, index) =>
+          {playerSetup.origins.map((originId, index) =>
             props.traits.map((trait) => {
               if (trait.key === originId) {
                 return (
@@ -59,7 +62,7 @@ const PlayerCard = (props) => {
               }
             })
           )}
-        </React.Fragment>
+        </Fragment>
       )}
     </PlayerCardDiv>
   );
@@ -70,6 +73,8 @@ PlayerCard.propTypes = {
   playerName: PropTypes.string,
   champions: PropTypes.array,
   traits: PropTypes.array,
+  saveSetup: PropTypes.func,
+  sharedSetup: PropTypes.object,
 };
 
 const PlayerCardDiv = styled.div`
@@ -113,6 +118,7 @@ const PlayerCardDiv = styled.div`
   .player-card-th {
     font-weight: 500;
   }
+
   ${mediaQueries("md")`
     width: 96%;
   `}

@@ -3,15 +3,19 @@ import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 import usePlayers from "../hooks/usePlayers";
+import useSetInfo from "../hooks/useSetInfo";
+import useShareSetup from "../hooks/useShareSetup";
+
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
 import PLayerCard from "./PlayerCard";
-import useSetInfo from "../hooks/useSetInfo";
+import ShareSetup from "./ShareSetup";
 
 const PlayersCards = () => {
   const [rerollSetup, setRerollSetup] = useState(false);
   const { playersInputs } = usePlayers();
   const { champions, traits, loadingSetInfo } = useSetInfo();
+  const { saveSetup, shareSetup, idToShare } = useShareSetup();
 
   const handleRerollSetup = () => {
     setRerollSetup((prevRerollSetup) => !prevRerollSetup);
@@ -31,11 +35,14 @@ const PlayersCards = () => {
             playerName={player.name}
             champions={champions}
             traits={traits}
+            saveSetup={saveSetup}
+            sharedSetup={{}}
           />
         ))
       ) : (
         <h1>Loading...</h1>
       )}
+      <ShareSetup shareSetup={shareSetup} idToShare={idToShare} />
     </PlayersCardsDiv>
   );
 };
