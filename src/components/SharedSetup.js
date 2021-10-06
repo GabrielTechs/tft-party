@@ -10,6 +10,11 @@ SharedSetup.propTypes = {
   setupId: PropTypes.string,
 };
 
-const SharedSetupDiv = styled.div``;
+const SharedSetupDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 69px;
+  padding: 10px;
+`;
 
 export default SharedSetup;
