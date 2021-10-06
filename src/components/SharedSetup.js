@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import RulesModes from "./RulesModes";
+import RulesSpecial from "./RulesSpecial";
 
 const SharedSetup = (props) => {
   return <SharedSetupDiv></SharedSetupDiv>;
