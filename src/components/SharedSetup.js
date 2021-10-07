@@ -28,4 +28,6 @@ const SharedSetupDiv = styled.div`
   padding: 10px;
 `;
 
+const SharedActiveRules = styled.div``;
+
 export default SharedSetup;
