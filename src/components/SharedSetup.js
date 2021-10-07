@@ -8,6 +8,12 @@ import RulesModes from "./RulesModes";
 import RulesSpecial from "./RulesSpecial";
 
 const SharedSetup = (props) => {
+  const sharedSetupDoc = useFirestore(
+    "sharedSetups",
+    "__name__",
+    props.setupId
+  );
+
   return <SharedSetupDiv></SharedSetupDiv>;
 };
 
