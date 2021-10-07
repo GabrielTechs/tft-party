@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import useFirestore from "../hooks/useFirestore";
+
 import RulesModes from "./RulesModes";
 import RulesSpecial from "./RulesSpecial";
 
