@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -14,7 +14,21 @@ const SharedSetup = (props) => {
     props.setupId
   );
 
-  return <SharedSetupDiv></SharedSetupDiv>;
+  return (
+    <SharedSetupDiv>
+      {sharedSetupDoc.docsCategory.map((sharedSetup) => (
+        <Fragment key={sharedSetup.id}>
+          <h1>Mode:</h1>
+          <SharedActiveRules>
+            <RulesModes
+              key={sharedSetup.modeActive.modeName}
+              mode={sharedSetup.modeActive}
+            />
+          </SharedActiveRules>
+        </Fragment>
+      ))}
+    </SharedSetupDiv>
+  );
 };
 
 SharedSetup.propTypes = {
