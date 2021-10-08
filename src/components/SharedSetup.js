@@ -60,6 +60,10 @@ const SharedSetupDiv = styled.div`
   }
 `;
 
-const SharedActiveRules = styled.div``;
+const SharedActiveRules = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 9px;
+`;
 
 export default SharedSetup;
