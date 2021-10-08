@@ -49,6 +49,15 @@ const SharedSetupDiv = styled.div`
   flex-direction: column;
   margin: 69px;
   padding: 10px;
+  h1 {
+    text-align: center;
+    color: ${({ theme }) => theme.primaryText};
+    display: inline-block;
+    font-size: 2.69rem;
+    font-weight: 500;
+    margin: 9px;
+    width: 100%;
+  }
 `;
 
 const SharedActiveRules = styled.div``;
