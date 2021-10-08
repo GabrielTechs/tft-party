@@ -25,6 +25,15 @@ const SharedSetup = (props) => {
               mode={sharedSetup.modeActive}
             />
           </SharedActiveRules>
+          {sharedSetup.specialRulesActive.length > 0 && (
+            <SharedActiveRules>
+              <h1>Special Rules:</h1>
+              <RulesSpecial
+                key={sharedSetup.specialRulesActive.specialRuleName}
+                specialRules={sharedSetup.specialRulesActive}
+              />
+            </SharedActiveRules>
+          )}
         </Fragment>
       ))}
     </SharedSetupDiv>
