@@ -66,4 +66,6 @@ const SharedActiveRules = styled.div`
   margin: 9px;
 `;
 
+const SharedSetupCards = styled.div``;
+
 export default SharedSetup;
