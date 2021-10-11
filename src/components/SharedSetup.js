@@ -85,6 +85,11 @@ const SharedActiveRules = styled.div`
   margin: 9px;
 `;
 
-const SharedSetupCards = styled.div``;
+const SharedSetupCards = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
 
 export default SharedSetup;
