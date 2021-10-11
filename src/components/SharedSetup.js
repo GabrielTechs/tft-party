@@ -38,6 +38,21 @@ const SharedSetup = (props) => {
               />
             </SharedActiveRules>
           )}
+          <SharedSetupCards>
+            <h1>Players Setup:</h1>
+            {!loadingSetInfo ? (
+              sharedSetup.playersSetup.map((playerSetup) => (
+                <PlayerCard
+                  key={playerSetup.player}
+                  champions={champions}
+                  traits={traits}
+                  sharedSetup={playerSetup}
+                />
+              ))
+            ) : (
+              <h1>Loading...</h1>
+            )}
+          </SharedSetupCards>
         </Fragment>
       ))}
     </SharedSetupDiv>
