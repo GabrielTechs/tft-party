@@ -7,6 +7,7 @@ import useSetInfo from "../hooks/useSetInfo";
 
 import RulesModes from "./RulesModes";
 import RulesSpecial from "./RulesSpecial";
+import PlayerCard from "./PlayerCard";
 
 const SharedSetup = (props) => {
   const { champions, traits, loadingSetInfo } = useSetInfo();
