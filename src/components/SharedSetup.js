@@ -9,6 +9,8 @@ import RulesModes from "./RulesModes";
 import RulesSpecial from "./RulesSpecial";
 
 const SharedSetup = (props) => {
+  const { champions, traits, loadingSetInfo } = useSetInfo();
+
   const sharedSetupDoc = useFirestore(
     "sharedSetups",
     "__name__",
