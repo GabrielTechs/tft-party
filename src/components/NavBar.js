@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const NavBar = (props) => {
+  const { image } = useImagesByName("logo-horizontal-w");
+
   return (
     <NavContainer>
       <div className="logo">TFT Party</div>
