@@ -12,7 +12,7 @@ const NavBar = (props) => {
 
   return (
     <NavContainer>
-      <div className="logo">TFT Party</div>
+      <img className="logo" src={image.imgUrl} alt=""></img>
       <ul>
         <li>
           <Link to="/" alt="home">
