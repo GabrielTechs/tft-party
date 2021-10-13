@@ -57,10 +57,7 @@ const NavContainer = styled.div`
   .logo {
     height: 50px;
     width: 200px;
-    margin: auto 0;
-    text-align: center;
-    font-size: 3rem;
-    color: white;
+    margin: auto 10px;
   }
 
   & ul {
