@@ -3,18 +3,18 @@ import styled from "styled-components";
 
 import SpecialRulesToggleBtn from "./SpecRulesToggleBtn";
 import { mediaQueries } from "../assets/mediaQueries";
-import { SRules } from "../assets/RulesPlaceHolders";
+import useRules from "../hooks/useRules";
 
 const SpecialRules = () => {
+  const { specialRules } = useRules();
+
   return (
     <SpecRulesDiv>
       <SpecRulesH2>Special Rules:</SpecRulesH2>
-      {SRules.map((sRule) => (
-        <SpecialRulesToggleBtn
-          key={sRule.specialRuleName}
-          specRule={sRule.specialRuleName}
-        />
-      ))}
+      {specialRules &&
+        specialRules.map((sRule) => (
+          <SpecialRulesToggleBtn key={sRule.specialRuleName} specRule={sRule} />
+        ))}
     </SpecRulesDiv>
   );
 };

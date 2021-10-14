@@ -4,22 +4,52 @@ import styled from "styled-components";
 
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { championCostColor, traitBgColor } from "../assets/colors";
 
 import Hexagon from "react-hexagon";
 
 const SHexagon = (props) => {
   const themeContext = useContext(ThemeContext);
   const [stroke, setStroke] = useState(themeContext.primary);
+  const [bgColor, setBgColor] = useState(themeContext.primary);
 
   useEffect(() => {
     if (props.stroke === "secondary") {
       setStroke(themeContext.secondary);
     } else if (props.stroke === "tertiary") {
       setStroke(themeContext.tertiary);
+    } else if (props.stroke === "black") {
+      setStroke("black");
+    } else if (
+      props.stroke === "1" ||
+      props.stroke === "2" ||
+      props.stroke === "3" ||
+      props.stroke === "4" ||
+      props.stroke === "5"
+    ) {
+      setStroke(championCostColor[props.stroke - 1]);
     } else {
       setStroke(themeContext.primary);
     }
   }, [props.stroke, themeContext]);
+
+  useEffect(() => {
+    if (props.background) {
+      if (props.traitBg) {
+        if (props.traitBg === "primary") {
+          setBgColor(themeContext.primary);
+        } else if (props.traitBg === "secondary") {
+          setBgColor(themeContext.secondary);
+        } else if (props.traitBg === "tertiary") {
+          setBgColor(themeContext.tertiary);
+        } else {
+          setBgColor(traitBgColor[props.traitBg]);
+        }
+      } else {
+        setBgColor(themeContext.primary);
+      }
+    }
+  }, [props.background, props.traitBg, themeContext]);
 
   return (
     <HexagonDiv>
@@ -38,12 +68,12 @@ const SHexagon = (props) => {
           style={{
             stroke: `${stroke}`,
             strokeWidth: 30,
-            fill: `${stroke}`,
+            fill: `${bgColor}`,
           }}
           backgroundScale={1.001}
         >
           {props.icon && (
-            <image href={props.icon} x="16%" y="16%" height="69%" width="69%" />
+            <image href={props.icon} x="26%" y="26%" height="49%" width="49%" />
           )}
         </Hexagon>
       ) : (
@@ -64,6 +94,7 @@ SHexagon.propTypes = {
   background: PropTypes.bool,
   icon: PropTypes.string,
   stroke: PropTypes.string,
+  traitBg: PropTypes.string,
 };
 
 const HexagonDiv = styled.div`

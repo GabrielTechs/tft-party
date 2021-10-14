@@ -1,24 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
+import useImagesByName from "../hooks/useImagesByName";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const NavBar = (props) => {
+  const { image } = useImagesByName("logo-horizontal-w");
+
   return (
     <NavContainer>
-      <div className="logo">TFT Party</div>
+      <img className="logo" src={image.imgUrl} alt=""></img>
       <ul>
         <li>
-          <a href="/" alt="home" to="/">
+          <Link to="/" alt="home">
             <FontAwesomeIcon icon={["fa", "home"]} size="1x" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/" alt="rules" to="/servicios">
+          <Link to="/rules" alt="rules">
             <FontAwesomeIcon icon={["fa", "list-ul"]} size="1x" />
-          </a>
+          </Link>
         </li>
         <li>
           <ThemeToggleBtn themeToggler={props.themeToggler} icon={props.icon} />
@@ -53,10 +57,7 @@ const NavContainer = styled.div`
   .logo {
     height: 50px;
     width: 200px;
-    margin: auto 0;
-    text-align: center;
-    font-size: 3rem;
-    color: white;
+    margin: auto 10px;
   }
 
   & ul {

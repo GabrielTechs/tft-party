@@ -1,28 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 import usePlayers from "../hooks/usePlayers";
+import useSetInfo from "../hooks/useSetInfo";
+import useShareSetup from "../hooks/useShareSetup";
+
 import PlayersNames from "./PlayersNames";
 import RerollPlayersSetup from "./RerollPlayersSetup";
 import PLayerCard from "./PlayerCard";
+import ShareSetup from "./ShareSetup";
 
 const PlayersCards = () => {
+  const [rerollSetup, setRerollSetup] = useState(false);
   const { playersInputs } = usePlayers();
+  const { champions, traits, loadingSetInfo } = useSetInfo();
+  const { saveSetup, shareSetup, idToShare } = useShareSetup();
+
+  const handleRerollSetup = () => {
+    setRerollSetup((prevRerollSetup) => !prevRerollSetup);
+  };
 
   return (
     <PlayersCardsDiv>
       <h1>Players names</h1>
       <PlayersNames players={playersInputs} />
-      <RerollPlayersSetup />
+      <RerollPlayersSetup handleRerollSetup={handleRerollSetup} />
       <h1>Players setup</h1>
-      {playersInputs.map((player) => (
-        <PLayerCard
-          key={player.player}
-          player={player.player}
-          playerName={player.name}
-        />
-      ))}
+      {!loadingSetInfo ? (
+        playersInputs.map((player) => (
+          <PLayerCard
+            key={`${rerollSetup} ${player.player}`}
+            player={player.player}
+            playerName={player.name}
+            champions={champions}
+            traits={traits}
+            saveSetup={saveSetup}
+            sharedSetup={{}}
+          />
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )}
+      <ShareSetup shareSetup={shareSetup} idToShare={idToShare} />
     </PlayersCardsDiv>
   );
 };
@@ -32,8 +52,6 @@ const PlayersCardsDiv = styled.div`
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: space-around;
-  border: 3px solid ${({ theme }) => theme.primary};
-  border-radius: 15px;
   margin: 69px;
   h1 {
     color: ${({ theme }) => theme.primaryText};

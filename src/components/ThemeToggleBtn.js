@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeToggleBtn = (props) => {
   return (
-    <ThemeBtn onClick={props.themeToggler}>
+    <ThemeBtn onClick={props.themeToggler} alt="theme">
       <FontAwesomeIcon icon={props.icon} size="1x" />
     </ThemeBtn>
   );

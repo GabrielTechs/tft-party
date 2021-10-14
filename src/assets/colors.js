@@ -7,17 +7,15 @@ export const championCostColor = [
 ];
 
 export const traitBgColor = {
-  Abomination: "#5f7b47",
-  Coven: "#5b2bb4",
-  Dawnbringer: "#2277c1",
-  Draconic: "#462dbc",
-  Dragonslayer: "#b50303",
-  Eternal: "#5e6668",
-  Forgotten: "#18bca1",
-  Hellion: "#c7290b",
-  Ironclad: "#646c6e",
-  Nightbringer: "#3e4055",
-  Redeemed: "#c39c04",
-  Revenant: "#a12f54",
-  Verdant: "#218f16",
+  Abomination: "#319e06",
+  Dawnbringer: "#0075fe",
+  Draconic: "#3b0dad",
+  Forgotten: "#00a673",
+  Hellion: "#eb5c22",
+  Inanimate: "#22b3eb",
+  Ironclad: "#464646",
+  Nightbringer: "#4a2725",
+  Redeemed: "#c49503",
+  Revenant: "#c30765",
+  Sentinel: "#c30765",
 };

@@ -16,6 +16,8 @@ import NavBar from "./components/NavBar";
 
 //pages
 import HomePage from "./pages/HomePage";
+import RulesPage from "./pages/RulesPage";
+import SharedSetupPage from "./pages/SharedSetupPage";
 
 function App() {
   const { theme, themeToggler, icon } = useTheme();
@@ -29,6 +31,12 @@ function App() {
             <NavBar theme={theme} themeToggler={themeToggler} icon={icon} />
             <Switch>
               <Route exact path="/" component={HomePage} />
+              <Route exact path="/rules" component={RulesPage} />
+              <Route
+                exact
+                path="/shared/:setupId"
+                component={SharedSetupPage}
+              />
             </Switch>
           </div>
         </ActiveRulesProvider>

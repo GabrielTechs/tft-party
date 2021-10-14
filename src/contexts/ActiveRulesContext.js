@@ -43,7 +43,7 @@ const ActiveRulesProvider = ({ children }) => {
   const toggleSpecialRule = (specialRule, isActive) => {
     if (isActive) {
       const filter = specialRulesActive.filter(
-        (sRule) => sRule !== specialRule
+        (sRule) => sRule.specialRuleName !== specialRule.specialRuleName
       );
       return setSpecialRulesActive([...filter]);
     } else {

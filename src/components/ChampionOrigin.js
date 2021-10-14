@@ -10,39 +10,47 @@ const ChampionOrigin = (props) => {
       <ChampionOriginHexaDiv>
         <SHexagon
           background={true}
-          icon="https://rerollcdn.com/icons/dawnbringer.png"
+          icon={props.origin.imgUrl}
+          traitBg={props.origin.name}
+          stroke={"black"}
         />
-        <h4>Dawnbringer</h4>
+        <h5>{props.origin.name}</h5>
       </ChampionOriginHexaDiv>
-      <ChampionOriginChampsDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
-      <ChampionOriginChampsDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
-      <ChampionOriginChampsDiv>
-        <SHexagon img="https://rerollcdn.com/characters/Skin/5/Viego.png" />
-        <h4>Champ name</h4>
-      </ChampionOriginChampsDiv>
+      <ChampionsOriginChampsDiv>
+        {props.champions.map((champ, index) => {
+          if (champ.traits.includes(props.origin.key)) {
+            return (
+              <ChampionOriginChampDiv key={index}>
+                <SHexagon img={champ.imgUrl} stroke={champ.cost.toString()} />
+                <h5>{champ.name}</h5>
+              </ChampionOriginChampDiv>
+            );
+          } else {
+            return false;
+          }
+        })}
+      </ChampionsOriginChampsDiv>
     </ChampionOriginDiv>
   );
 };
 
 ChampionOrigin.propTypes = {
-  championOrigin: PropTypes.string,
+  origin: PropTypes.object,
+  champions: PropTypes.array,
 };
 
 const ChampionOriginDiv = styled.div`
   display: flex;
+  margin: 6px 0px;
   width: 100%;
 `;
 
 const ChampionOriginHexaDiv = styled.div`
-  margin: 6px 9px;
+  margin: auto 9px auto 0px;
+  min-width: 74px;
   text-align: center;
-  h4 {
+  h5 {
+    display: inline-block;
     color: ${({ theme }) => theme.secondaryText};
     font-size: 1.16rem;
     font-weight: 600;
@@ -50,23 +58,30 @@ const ChampionOriginHexaDiv = styled.div`
     width: 100%;
   }
   svg {
-    min-width: 49px;
+    min-width: 46px;
     max-width: 49px;
   }
 `;
 
-const ChampionOriginChampsDiv = styled.div`
-  min-width: 29px;
-  min-height: 29px;
-  max-width: 39px;
-  max-height: 100%;
-  margin: 13px 3px 0;
-  h4 {
+const ChampionsOriginChampsDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const ChampionOriginChampDiv = styled.div`
+  text-align: center;
+  margin: auto 9px auto 0;
+  padding: 2px;
+  h5 {
     color: ${({ theme }) => theme.secondaryText};
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
     width: 100%;
+  }
+  svg {
+    width: 46px;
   }
 `;
 

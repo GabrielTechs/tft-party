@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
@@ -6,27 +6,64 @@ import { mediaQueries } from "../assets/mediaQueries";
 import ChampionCommander from "./ChampionCommander";
 import ChampionOrigin from "./ChampionOrigin";
 
+import usePlayerCard from "../hooks/usePlayerCard";
+
 const PlayerCard = (props) => {
+  const { playerSetup } = usePlayerCard(props);
+
   return (
     <PlayerCardDiv>
       <PlayerCardNameDiv>
-        <h3>{props.player}</h3>
-        {props.playerName && (
-          <h3 className="player-card-th">: {props.playerName}</h3>
+        <h3>{playerSetup.player}</h3>
+        {playerSetup.playerName && (
+          <h3 className="player-card-th">: {playerSetup.playerName}</h3>
         )}
       </PlayerCardNameDiv>
-      <h2>Commanders:</h2>
-      <ChampionCommander
-        championImg="https://rerollcdn.com/characters/Skin/5/Viego.png"
-        championName="Viego"
-      />
-      <ChampionCommander
-        championImg="https://rerollcdn.com/characters/Skin/5/Volibear.png"
-        championName="Volibear"
-      />
-      <h2>Origins:</h2>
-      <ChampionOrigin />
-      <ChampionOrigin />
+
+      {playerSetup.teamSide !== "none" && <h4>Team {playerSetup.teamSide}</h4>}
+
+      {playerSetup.commanders.length > 0 && (
+        <Fragment>
+          <h2>Commanders:</h2>
+          {playerSetup.commanders.map((champion, index) =>
+            props.champions.map((champ) => {
+              if (champ.championId === champion) {
+                return (
+                  <ChampionCommander
+                    key={index}
+                    championImg={champ.imgUrl}
+                    championName={champ.name}
+                    championCost={champ.cost}
+                  />
+                );
+              } else {
+                return false;
+              }
+            })
+          )}
+        </Fragment>
+      )}
+
+      {playerSetup.origins.length > 0 && (
+        <Fragment>
+          <h2>Origins:</h2>
+          {playerSetup.origins.map((originId, index) =>
+            props.traits.map((trait) => {
+              if (trait.key === originId) {
+                return (
+                  <ChampionOrigin
+                    key={index}
+                    origin={trait}
+                    champions={props.champions}
+                  />
+                );
+              } else {
+                return false;
+              }
+            })
+          )}
+        </Fragment>
+      )}
     </PlayerCardDiv>
   );
 };
@@ -34,9 +71,14 @@ const PlayerCard = (props) => {
 PlayerCard.propTypes = {
   player: PropTypes.string,
   playerName: PropTypes.string,
+  champions: PropTypes.array,
+  traits: PropTypes.array,
+  saveSetup: PropTypes.func,
+  sharedSetup: PropTypes.object,
 };
 
 const PlayerCardDiv = styled.div`
+  min-height: 200px;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -65,9 +107,18 @@ const PlayerCardDiv = styled.div`
     font-size: 1.69rem;
     font-weight: 600;
   }
+  h4 {
+    color: ${({ theme }) => theme.secondaryText};
+    display: inline-block;
+    font-size: 1.69rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+  }
   .player-card-th {
     font-weight: 500;
   }
+
   ${mediaQueries("md")`
     width: 96%;
   `}
