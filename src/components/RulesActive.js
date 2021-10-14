@@ -1,29 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { mediaQueries } from "../assets/mediaQueries";
 import { useActiveRules } from "../contexts/ActiveRulesContext";
-import useRules from "../hooks/useRules";
 
-const RulesActive = (props) => {
-  const { modeActive, specialRulesActive } = useActiveRules();
-  const { specialRules } = useRules();
-
-  let sRuleNamesActive = [];
-
-  const sRulesActive = specialRulesActive.map((sRule) =>
-    specialRules.filter((sRuleFilter) => sRuleFilter.specialRuleName === sRule)
-  );
-  sRulesActive.map((sRuleActive) => {
-    return sRuleActive.map((sRuleActiveDescription) =>
-      sRuleNamesActive.push(sRuleActiveDescription.specialRule)
-    );
-  });
+const RulesActive = () => {
+  const { modeActive } = useActiveRules();
 
   return (
     <RulesActiveDiv>
       <h1>Rules active:</h1>
+
       {modeActive ? (
         <RulesContainerDiv>
           <h1>Mode:</h1>
@@ -37,22 +24,8 @@ const RulesActive = (props) => {
       ) : (
         <h1>Loading...</h1>
       )}
-
-      {specialRulesActive.length > 0 && (
-        <RulesContainerDiv>
-          <h1>Special rules:</h1>
-          {sRuleNamesActive.map((sRule) => (
-            <h2 key={sRule}>- {sRule}</h2>
-          ))}
-        </RulesContainerDiv>
-      )}
     </RulesActiveDiv>
   );
-};
-
-RulesActive.propTypes = {
-  modes: PropTypes.string,
-  advancedRules: PropTypes.string,
 };
 
 const RulesActiveDiv = styled.div`
