@@ -5,7 +5,7 @@ import { mediaQueries } from "../assets/mediaQueries";
 import { useActiveRules } from "../contexts/ActiveRulesContext";
 
 const RulesActive = () => {
-  const { modeActive } = useActiveRules();
+  const { modeActive, specialRulesActive } = useActiveRules();
 
   return (
     <RulesActiveDiv>
