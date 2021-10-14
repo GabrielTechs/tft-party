@@ -24,6 +24,15 @@ const RulesActive = () => {
       ) : (
         <h1>Loading...</h1>
       )}
+
+      {specialRulesActive.length > 0 && (
+        <RulesContainerDiv>
+          <h1>Special rules:</h1>
+          {specialRulesActive.map((sRule) => (
+            <h2 key={sRule.specialRuleName}>- {sRule.specialRule}</h2>
+          ))}
+        </RulesContainerDiv>
+      )}
     </RulesActiveDiv>
   );
 };
