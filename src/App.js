@@ -1,7 +1,7 @@
 import React from "react";
 import "./assets/FontAwesomeIcon";
 import GlobalStyles from "./assets/GlobalStyles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //imports needed to control the theme
 import { themes } from "./assets/themes";
@@ -29,15 +29,15 @@ function App() {
         <ActiveRulesProvider>
           <div className="App">
             <NavBar theme={theme} themeToggler={themeToggler} icon={icon} />
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/rules" component={RulesPage} />
+            <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route exact path="/rules" element={<RulesPage />} />
               <Route
                 exact
                 path="/shared/:setupId"
-                component={SharedSetupPage}
+                element={<SharedSetupPage />}
               />
-            </Switch>
+            </Routes>
           </div>
         </ActiveRulesProvider>
       </ThemeProvider>
