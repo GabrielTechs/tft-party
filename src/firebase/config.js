@@ -1,11 +1,7 @@
-import { firebase } from "@firebase/app";
-import "firebase/firestore";
-import "firebase/storage";
-import "firebase/analytics";
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "@firebase/firestore";
+import { getAnalytics } from "@firebase/analytics";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -15,13 +11,10 @@ var firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
-
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+const app = initializeApp(firebaseConfig);
 
-const projectFirestore = firebase.firestore();
-const projectStorage = firebase.storage();
-const projectAuth = firebase.auth();
+const projectFirestore = getFirestore(app);
+const analytics = getAnalytics(app);
 
-export { projectStorage, projectFirestore, projectAuth };
+export { projectFirestore, analytics };
