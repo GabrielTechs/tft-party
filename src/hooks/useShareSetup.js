@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 
 import { useActiveRules } from "../contexts/ActiveRulesContext";
 import { projectFirestore } from "../firebase/config";
+import { collection, addDoc } from "@firebase/firestore";
 
 const playersSetupInitialState = [
   { player: "Player 1" },
@@ -44,17 +45,14 @@ const useShareSetup = () => {
     const timestamp = new Date();
     //adding a new setup to the db in the "sharedSetups" collection
     //then setting the doc id to the state idToShare
-    projectFirestore
-      .collection("sharedSetups")
-      .add({
-        modeActive,
-        specialRulesActive,
-        playersSetup,
-        date: timestamp,
-      })
-      .then((docRef) => {
-        setIdToShare(docRef.id);
-      });
+    addDoc(collection(projectFirestore, "sharedSetups"), {
+      modeActive,
+      specialRulesActive,
+      playersSetup,
+      date: timestamp,
+    }).then((docRef) => {
+      setIdToShare(docRef.id);
+    });
   };
 
   return { playersSetup, saveSetup, shareSetup, idToShare };
