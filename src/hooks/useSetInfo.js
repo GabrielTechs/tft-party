@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { projectFirestore } from "../firebase/config";
+import { collection, onSnapshot } from "@firebase/firestore";
 
 const useSetInfo = () => {
   const [champions, setChampions] = useState([]);
@@ -9,9 +10,9 @@ const useSetInfo = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const collectionSetInfoRef = projectFirestore.collection("tftMidSet5Info");
+    const collectionSetInfoRef = collection(projectFirestore, "tftMidSet5Info");
 
-    const unsub = collectionSetInfoRef.onSnapshot((snap) => {
+    const unsub = onSnapshot(collectionSetInfoRef, (snap) => {
       snap.forEach((doc) => {
         if (doc.data().name === "champions") {
           setChampions(doc.data().champions);
