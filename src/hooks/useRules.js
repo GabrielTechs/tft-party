@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { projectFirestore } from "../firebase/config";
+import { collection, onSnapshot } from "@firebase/firestore";
 
 const useRules = () => {
   const [modes, setModes] = useState([]);
@@ -9,9 +10,9 @@ const useRules = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const collectionModesRef = projectFirestore.collection("rules");
+    const collectionModesRef = collection(projectFirestore, "rules");
 
-    const unsub = collectionModesRef.onSnapshot((snap) => {
+    const unsub = onSnapshot(collectionModesRef, (snap) => {
       snap.forEach((doc) => {
         if (doc.data().name === "modes") {
           setModes(doc.data().modes);
