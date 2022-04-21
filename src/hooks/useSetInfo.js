@@ -10,7 +10,10 @@ const useSetInfo = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const collectionSetInfoRef = collection(projectFirestore, "tftMidSet5Info");
+    const collectionSetInfoRef = collection(
+      projectFirestore,
+      "tftActiveSetInfo"
+    );
 
     const unsub = onSnapshot(collectionSetInfoRef, (snap) => {
       snap.forEach((doc) => {
