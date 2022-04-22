@@ -3,21 +3,17 @@ import useInput from "../hooks/useInput";
 
 const usePlayers = () => {
   const [firstPlayer, firstPlayerName, bindFirstPlayer] = useInput("Player 1");
-  const [secondPlayer, secondPlayerName, bindSecondPlayer] = useInput(
-    "Player 2"
-  );
+  const [secondPlayer, secondPlayerName, bindSecondPlayer] =
+    useInput("Player 2");
   const [thirdPlayer, thirdPlayerName, bindThirdPlayer] = useInput("Player 3");
-  const [fourthPlayer, fourthPlayerName, bindFourthPlayer] = useInput(
-    "Player 4"
-  );
+  const [fourthPlayer, fourthPlayerName, bindFourthPlayer] =
+    useInput("Player 4");
   const [fifthPlayer, fifthPlayerName, bindFifthPlayer] = useInput("Player 5");
   const [sixthPlayer, sixthPlayerName, bindSixthPlayer] = useInput("Player 6");
-  const [seventhPlayer, seventhPlayerName, bindSeventhPlayer] = useInput(
-    "Player 7"
-  );
-  const [eighthPlayer, eighthPlayerName, bindEighthPlayer] = useInput(
-    "Player 8"
-  );
+  const [seventhPlayer, seventhPlayerName, bindSeventhPlayer] =
+    useInput("Player 7");
+  const [eighthPlayer, eighthPlayerName, bindEighthPlayer] =
+    useInput("Player 8");
 
   const playersInputs = useMemo(
     () => [
