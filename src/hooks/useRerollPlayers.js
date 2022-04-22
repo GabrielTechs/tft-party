@@ -2,13 +2,13 @@ import { useState, useEffect, useCallback } from "react";
 
 import { useActiveRules } from "../contexts/ActiveRulesContext";
 import {
-  setFiveChampionsId,
-  setFiveShadowChampionsId,
-  setFiveLightChampionsId,
-  setFiveOriginsId,
-  setFiveShadowOriginsId,
-  setFiveLightOriginsId,
-} from "../setFiveInfo/setFiveIds";
+  championsId,
+  shadowChampionsId,
+  lightChampionsId,
+  originsId,
+  shadowOriginsId,
+  lightOriginsId,
+} from "../setInfo/setActiveIds";
 
 const useRerollPlayers = () => {
   const { modeActive } = useActiveRules();
@@ -34,12 +34,12 @@ const useRerollPlayers = () => {
       if (bothCommanders) {
         //getting a commander from the light side
         let randomLightCommanderPositions = getRandomPositions(
-          setFiveLightChampionsId.length,
+          lightChampionsId.length,
           numCommanders
         );
         //setting light commanders to commander state
         randomLightCommanderPositions.map((randomCommander) => {
-          let commanderToPush = setFiveLightChampionsId[randomCommander];
+          let commanderToPush = lightChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
             ...prevCommanders,
             commanderToPush,
@@ -47,12 +47,12 @@ const useRerollPlayers = () => {
         });
         //getting a commander from the shadow side
         let randomShadowCommanderPositions = getRandomPositions(
-          setFiveShadowChampionsId.length,
+          shadowChampionsId.length,
           numCommanders
         );
         //setting shadow commanders to commander state
         randomShadowCommanderPositions.map((randomCommander) => {
-          let commanderToPush = setFiveShadowChampionsId[randomCommander];
+          let commanderToPush = shadowChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
             ...prevCommanders,
             commanderToPush,
@@ -63,12 +63,12 @@ const useRerollPlayers = () => {
       if (teamSide === "light") {
         //getting a commander from the light side
         let randomCommanderPositions = getRandomPositions(
-          setFiveLightChampionsId.length,
+          lightChampionsId.length,
           numCommanders
         );
         //setting light commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
-          let commanderToPush = setFiveLightChampionsId[randomCommander];
+          let commanderToPush = lightChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
             ...prevCommanders,
             commanderToPush,
@@ -77,12 +77,12 @@ const useRerollPlayers = () => {
       } else if (teamSide === "shadow") {
         //getting a commander from the shadow side
         let randomCommanderPositions = getRandomPositions(
-          setFiveShadowChampionsId.length,
+          shadowChampionsId.length,
           numCommanders
         );
         //setting shadow commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
-          let commanderToPush = setFiveShadowChampionsId[randomCommander];
+          let commanderToPush = shadowChampionsId[randomCommander];
           return setCommanders((prevCommanders) => [
             ...prevCommanders,
             commanderToPush,
@@ -91,12 +91,12 @@ const useRerollPlayers = () => {
       } else {
         //getting a commander from any side
         let randomCommanderPositions = getRandomPositions(
-          setFiveChampionsId.length,
+          championsId.length,
           numCommanders
         );
         //setting commanders to commander state
         randomCommanderPositions.map((randomCommander) => {
-          let commanderToPush = setFiveChampionsId[randomCommander];
+          let commanderToPush = championsId[randomCommander];
           return setCommanders((prevCommanders) => [
             ...prevCommanders,
             commanderToPush,
@@ -112,22 +112,22 @@ const useRerollPlayers = () => {
       if (bothOrigins) {
         //getting random origins from the light side
         let randomLightOriginsPositions = getRandomPositions(
-          setFiveLightOriginsId.length,
+          lightOriginsId.length,
           numOrigins
         );
         //setting light origins to origins state
         randomLightOriginsPositions.map((randomOrigin) => {
-          let originToPush = setFiveLightOriginsId[randomOrigin];
+          let originToPush = lightOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
         //getting random origins from the shadow side
         let randomShadowOriginsPositions = getRandomPositions(
-          setFiveShadowOriginsId.length,
+          shadowOriginsId.length,
           numOrigins
         );
         //setting shadow origins to origins state
         randomShadowOriginsPositions.map((randomOrigin) => {
-          let originToPush = setFiveShadowOriginsId[randomOrigin];
+          let originToPush = shadowOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
         return;
@@ -135,34 +135,34 @@ const useRerollPlayers = () => {
       if (teamSide === "light") {
         //getting random origins from the light side
         let randomOriginsPositions = getRandomPositions(
-          setFiveLightOriginsId.length,
+          lightOriginsId.length,
           numOrigins
         );
         //setting light origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
-          let originToPush = setFiveLightOriginsId[randomOrigin];
+          let originToPush = lightOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
       } else if (teamSide === "shadow") {
         //getting random origins from the shadow side
         let randomOriginsPositions = getRandomPositions(
-          setFiveShadowOriginsId.length,
+          shadowOriginsId.length,
           numOrigins
         );
         //setting shadow origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
-          let originToPush = setFiveShadowOriginsId[randomOrigin];
+          let originToPush = shadowOriginsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
       } else {
         //getting random origins from the any side
         let randomOriginsPositions = getRandomPositions(
-          setFiveOriginsId.length,
+          originsId.length,
           numOrigins
         );
         //setting the origins to origins state
         randomOriginsPositions.map((randomOrigin) => {
-          let originToPush = setFiveOriginsId[randomOrigin];
+          let originToPush = originsId[randomOrigin];
           return setOrigins((prevOrigins) => [...prevOrigins, originToPush]);
         });
       }
