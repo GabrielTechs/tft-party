@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { mediaQueries } from "../assets/mediaQueries";
 
 const SaveSetupBtn = (props) => {
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const onBtnClick = (e) => {
+    setIsDisabled(true);
+    //props.shareSetup();
+  };
+
   return (
-    <SBtnSaveSetup value="Reroll setup" onClick={props.shareSetup}>
+    <SBtnSaveSetup
+      disabled={isDisabled}
+      value="Reroll setup"
+      onClick={onBtnClick}
+    >
       Get link to share
     </SBtnSaveSetup>
   );
@@ -37,8 +48,9 @@ const SBtnSaveSetup = styled.button`
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.26),
       0 16px 19px 0 rgba(0, 0, 0, 0.19);
   }
-  :active {
+  :disabled {
     background: ${({ theme }) => theme.secondary};
+    cursor: not-allowed;
   }
   ${mediaQueries("sm")`
   width: 96%;
