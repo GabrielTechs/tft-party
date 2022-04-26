@@ -8,7 +8,7 @@ const SaveSetupBtn = (props) => {
 
   const onBtnClick = (e) => {
     setIsDisabled(true);
-    //props.shareSetup();
+    props.shareSetup();
   };
 
   return (
