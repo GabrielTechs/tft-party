@@ -15,7 +15,7 @@
     "plugin:testing-library/dom",
     "prettier"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -32,6 +32,5 @@
     "flowtype",
     "jest",
     "testing-library"
-  ],
-  "rules": {}
+  ]
 }
