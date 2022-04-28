@@ -8,7 +8,7 @@ const SavedSetupLink = (props) => {
 
   useEffect(() => {
     if (props.idToShare) {
-      setLinkToShare(`tftparty.com/shared/${props.idToShare}`);
+      setLinkToShare(`${window.location.host}/shared/${props.idToShare}`);
     }
   }, [props.idToShare]);
 
