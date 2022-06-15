@@ -14,7 +14,8 @@ const Presentation = () => {
 
 const PresentationDiv = styled.div`
   border-radius: 69px;
-  width: 70%;
+  max-height: 300px;
+  width: 75%;
   background-size: cover;
   overflow: hidden;
   margin: auto;
