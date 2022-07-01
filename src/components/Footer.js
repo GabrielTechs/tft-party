@@ -11,9 +11,7 @@ const Footer = () => {
         Games are trademarks or registered trademarks of Riot Games, Inc. League
         of Legends © Riot Games, Inc.
       </h1>
-      <h2>
-        © tftParty 2021 all rights reserved. Designed by Gabriel H. Alguacil.
-      </h2>
+      <h2>©tftParty 2022. Designed by Gabriel H. Alguacil.</h2>
     </FooterDiv>
   );
 };
