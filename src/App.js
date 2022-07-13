@@ -18,6 +18,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import RulesPage from "./pages/RulesPage";
 import SharedSetupPage from "./pages/SharedSetupPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const { theme, themeToggler, icon } = useTheme();
@@ -37,6 +38,7 @@ function App() {
                 path="/shared/:setupId"
                 element={<SharedSetupPage />}
               />
+              <Route exact path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
         </ActiveRulesProvider>
