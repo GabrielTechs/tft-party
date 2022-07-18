@@ -20,11 +20,25 @@ import RulesPage from "./pages/RulesPage";
 import SharedSetupPage from "./pages/SharedSetupPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+//SEO
+import Helmet from "react-helmet";
+
 function App() {
   const { theme, themeToggler, icon } = useTheme();
 
   return (
     <Router>
+      <Helmet>
+        <title>"Tft party - play tft with friends in a different way"</title>
+        <meta
+          name="description"
+          content="Multiple modes and easy to share, play tft with friends and have a different experience."
+        />
+        <meta
+          name="keywords"
+          content="teamfight tactics, tft, game modes, tft party"
+        />
+      </Helmet>
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyles />
         <ActiveRulesProvider>
