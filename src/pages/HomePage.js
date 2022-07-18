@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <Fragment>
       <HelmetData
-        title="Tftparty - play tft with friends in a different way"
+        title="Tft party - play tft with friends in a different way"
         description="Multiple modes and easy to share, play tft with friends and have a different experience."
       />
       <Presentation />
