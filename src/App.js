@@ -32,7 +32,7 @@ function App() {
         <title>"Tft party - play tft with friends in a different way"</title>
         <meta
           name="description"
-          content="Multiple modes and easy to share, play tft with friends and have a different experience."
+          content="Multiple modes and easy to share, play tft with friends and have a different game experience."
         />
         <meta
           name="keywords"
