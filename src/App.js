@@ -29,7 +29,7 @@ function App() {
   return (
     <Router>
       <Helmet>
-        <title>"Tft party - play tft with friends in a different way"</title>
+        <title>Tft party - play tft with friends in a different way</title>
         <meta
           name="description"
           content="Multiple modes and easy to share, play tft with friends and have a different game experience."
